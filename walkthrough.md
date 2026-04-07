@@ -1792,8 +1792,9 @@ site/
 
 | # | 问题 | 严重度 | 说明 |
 |---|------|--------|------|
-| 1 | 4 个 npm moderate severity vulnerabilities | 低 | 依赖链上的间接漏洞，不影响静态站生成 |
-| 2 | 英文卡片仍为 concise edition | 低 | 已不再是占位页，但与中文完整版在证据密度上仍不完全等价 |
+| 1 | 私有仓库当前无法启用 GitHub Pages | 中 | GitHub API 返回 `422`，当前计划不支持该私有仓库开 Pages；workflow 已改为私有仓库自动跳过，避免持续失败 |
+| 2 | 4 个 npm moderate severity vulnerabilities | 低 | 依赖链上的间接漏洞，不影响静态站生成 |
+| 3 | 英文卡片仍为 concise edition | 低 | 已不再是占位页，但与中文完整版在证据密度上仍不完全等价 |
 
 ---
 
@@ -1803,8 +1804,8 @@ site/
 
 - [ ] 创建 GitHub 仓库（建议名 `llm-benchmark-field-guide`）
 - [x] `git init`
-- [ ] push 到 GitHub → 验证根目录 `.github/workflows/deploy.yml` 自动构建
-- [ ] 确认 Pages 站点可访问
+- [x] push 到 GitHub → workflow 已触发
+- [ ] 若保持私有仓库：改用其他托管方案；若要 GitHub Pages：需切 public 或升级到支持私有 Pages 的计划
 
 ### P1 — 内容对齐
 
