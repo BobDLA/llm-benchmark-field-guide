@@ -3,7 +3,7 @@ title: TAU2-Bench
 category: General Agent
 subcategory: Real-World Task Completion
 org: Sierra
-date_released: "2025-08"
+date_released: "2025-06"
 dataset_size: "面向电信客服的多轮 dual-control 任务集"
 scoring: task_success
 verdict: conditional
@@ -29,7 +29,7 @@ verdict: conditional
 | 属性 | 值 |
 | ---- | ---- |
 | 全称 | τ²-Bench |
-| 首次公开 | 2025-08 |
+| 首次公开 | 2025-06（arXiv） |
 | 出品方 | Sierra |
 | 核心场景 | Telecom customer service |
 | 输入形式 | 用户请求 + 可调用业务工具 + 对话上下文 + 环境状态 |
@@ -40,7 +40,7 @@ verdict: conditional
 | 任务形态 | `dual-control conversational agent evaluation` |
 | 风险标签 | 模拟器真实性 / 业务域偏窄 / 环境依赖 / 口径持续演进 |
 | Repo | https://github.com/sierra-research/tau2-bench |
-| 论文 | https://arxiv.org/abs/2508.15160 |
+| 论文 | https://arxiv.org/abs/2506.07982 |
 | Leaderboard | https://www.taubench.com/ |
 
 ## 3. 卡片导航

@@ -4,7 +4,7 @@ category: General Agent
 subcategory: MCP Tool Use
 org: EvalSys
 date_released: "2025-08"
-dataset_size: "127 tasks / 8 MCP servers"
+dataset_size: "127 tasks / 5 MCP services"
 scoring: pass_at_k
 verdict: recommended
 ---
@@ -16,7 +16,7 @@ verdict: recommended
 | 日期 | 2026-04-08 |
 | 版本 | v1 |
 | 状态 | 首版上线；按 MCP 原生工具生态整理 |
-| 变更记录 | 新增 MCP benchmark 卡片；补入 8 个服务器、127 个任务与 `pass@k` 口径 |
+| 变更记录 | 新增 MCP benchmark 卡片；补入 5 类 MCP services、127 个任务与 `pass@k` 口径 |
 
 ---
 
@@ -31,7 +31,7 @@ verdict: recommended
 | 全称 | MCPMark |
 | 首次公开 | 2025-08 |
 | 出品方 | EvalSys |
-| 数据集规模 | 127 个任务，覆盖 8 个 MCP servers |
+| 数据集规模 | 当前标准套件 127 个任务，覆盖 5 类 MCP services（Notion / GitHub / Filesystem / Postgres / Playwright） |
 | 输入形式 | 用户请求 + MCP server 能力 + 上下文状态 |
 | 输出形式 | 工具调用序列、参数、最终结果 |
 | 评分方式 | `pass@k` / success rate |
@@ -41,7 +41,7 @@ verdict: recommended
 | 风险标签 | server 漂移 / 环境搭建依赖 / 生态变化快 / 任务覆盖仍早期 |
 | Leaderboard | https://www.mcpmark.ai/leaderboard |
 | Repo | https://github.com/eval-sys/mcpmark |
-| 论文 | https://arxiv.org/abs/2508.08750 |
+| 论文 | https://arxiv.org/abs/2509.24002 |
 
 ## 3. 卡片导航
 
@@ -137,7 +137,7 @@ MCPMark 主要测三件事：
 | 维度 | 信息 |
 | ---- | ---- |
 | 任务量 | 127 |
-| 覆盖 server 数 | 8 |
+| 覆盖 MCP services | 5 |
 | 场景 | MCP 原生工具任务 |
 | 结果口径 | `pass@k` / success rate |
 
@@ -199,7 +199,7 @@ server、schema、部署方式都可能变化，benchmark 环境一致性是解�
 
 #### 5.3.2 🗣️ 当前覆盖还属于早期规模
 
-127 个任务、8 个 servers 已经很有代表性，但仍不足以覆盖整个 MCP 生态。  
+127 个任务、5 类 MCP services 已经很有代表性，但仍不足以覆盖整个 MCP 生态。  
 来源：官方 repo 当前公开规模。
 
 #### 5.3.3 🗣️ 协议原生不等于任务全栈

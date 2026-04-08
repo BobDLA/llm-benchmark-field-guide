@@ -2,8 +2,8 @@
 title: AIME
 category: Math
 subcategory: Competition Math
-org: MathArena / MAA
-date_released: "2025"
+org: MAA
+date_released: "historical competition; MathArena evals current in 2025-"
 dataset_size: "每场 15 题；年度常用口径为 AIME I + II 共 30 题"
 scoring: exact_match
 verdict: recommended
@@ -30,8 +30,8 @@ verdict: recommended
 | ---- | ---- |
 | 全称 | American Invitational Mathematics Examination |
 | 当前常见引用口径 | MathArena 上的 `AIME 2025 / 2026` 等年度竞赛集 |
-| 原始出题方 | MAA |
-| 评测平台 | MathArena |
+| 原始竞赛组织方 | MAA |
+| 当前常见评测平台 | MathArena |
 | 数据规模 | 每场 15 题；AIME I + II 合并常见为 30 题 |
 | 输入形式 | 一道竞赛数学题 |
 | 输出形式 | `0-999` 的整数最终答案 |

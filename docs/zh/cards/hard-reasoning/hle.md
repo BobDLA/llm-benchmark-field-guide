@@ -2,7 +2,7 @@
 title: HLE
 category: Hard Reasoning
 subcategory: Frontier Closed-Ended Reasoning
-org: Center for AI Safety
+org: Center for AI Safety / Scale AI
 date_released: "2025-01"
 dataset_size: "2,500"
 scoring: automated_grading
@@ -30,7 +30,7 @@ verdict: recommended
 | ---- | ---- |
 | 全称 | Humanity's Last Exam |
 | 首次公开 | 2025-01 |
-| 出品方 | Center for AI Safety（联合多方研究者与专家） |
+| 出品方 | Center for AI Safety / Scale AI（联合多方研究者与专家） |
 | 数据集规模 | 2,500 题 |
 | 题目来源 | 专家编写的高难度闭合式问题 |
 | 输入形式 | 文本题、部分图像题，常带专业背景与多步约束 |

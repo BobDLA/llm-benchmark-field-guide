@@ -41,7 +41,7 @@ verdict: recommended
 | 风险标签 | judge 参与 / 网络漂移 / 覆盖广但样本仍小 / 任务定义偏研究型 |
 | 官方页 | https://widesearch-seed.github.io/ |
 | Dataset | https://huggingface.co/datasets/ByteDance-Seed/WideSearch |
-| 论文 | https://arxiv.org/abs/2508.14051 |
+| 论文 | https://arxiv.org/abs/2508.07999 |
 
 ## 3. 卡片导航
 

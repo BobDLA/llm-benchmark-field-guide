@@ -40,7 +40,7 @@ verdict: conditional
 | 二级类目 | `Terminal Operation` |
 | 任务形态 | `end-to-end terminal agent evaluation` |
 | 风险标签 | beta 迭代 / adapter 依赖 / Docker 环境差异 / 任务覆盖尚浅 |
-| Repo | https://github.com/laude-institute/terminal-bench |
+| Repo | https://github.com/harbor-framework/terminal-bench |
 | Docs | https://www.tbench.ai/docs |
 | Harbor 运行文档 | https://harborframework.com/docs/running-tbench |
 | Leaderboard | https://www.tbench.ai/leaderboard |
@@ -95,7 +95,7 @@ Terminal-Bench 测的是：
 - 可操作的 terminal sandbox
 - 必要的工具和环境
 
-**公开示例**（来源：[Terminal-Bench 官方 Repo](https://github.com/laude-institute/terminal-bench) 与 Harbor 运行文档）：
+**公开示例**（来源：[Terminal-Bench 官方 Repo](https://github.com/harbor-framework/terminal-bench) 与 Harbor 运行文档）：
 
 > **Instruction**: Install and configure a PostgreSQL database, create a table called `users` with columns `id`, `name`, and `email`, then insert 3 sample rows and export the table to a CSV file at `/output/users.csv`.
 
@@ -190,7 +190,7 @@ Terminal-Bench 的难点并不只是“命令记不记得”，而是：
 #### 5.3.1 🏛️ 还在 beta
 
 官方自己明确写了会持续扩任务，数据和 leaderboard 都在演化。  
-来源：[官方 Repo](https://github.com/laude-institute/terminal-bench) README 状态说明。
+来源：[官方 Repo](https://github.com/harbor-framework/terminal-bench) README 状态说明。
 
 #### 5.3.2 🗣️ 运行框架影响很大
 
