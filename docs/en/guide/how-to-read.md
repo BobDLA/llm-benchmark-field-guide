@@ -49,6 +49,9 @@ Every model score is annotated with:
 > [!WARNING]
 > Scores under different protocols are not directly comparable. Vendor self-reported scores may not be reproducible.
 
+> [!TIP]
+> If you want to know which sources these cards trust first, and when repo docs or wiki-like documentation layers are used, continue to [How We Source These Cards](/en/guide/how-we-source).
+
 ### Defect Source Tags
 
 - 🏛️ = Officially acknowledged issue

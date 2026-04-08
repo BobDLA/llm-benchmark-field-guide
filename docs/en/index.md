@@ -2,36 +2,70 @@
 layout: home
 hero:
   name: LLM Benchmark Field Guide
-  text: A practical guide to what each benchmark really measures
-  tagline: Go beyond leaderboard numbers and understand what a benchmark tests, how it works, and whether you should trust it
+  text: Understand what each benchmark is really measuring
+  tagline: Go beyond leaderboard numbers and read each benchmark in terms of task design, scoring logic, reliability, and actual use cases
   actions:
     - theme: brand
-      text: Browse Cards
-      link: /en/cards/search-agent/browsecomp
-    - theme: alt
-      text: How to Read a Card
+      text: Start With the Guide
       link: /en/guide/how-to-read
+    - theme: alt
+      text: Compare All Cards
+      link: /en/comparison
 
 features:
   - icon: 🔍
+    title: Knowledge
+    details: MMLU-Pro measures multi-subject knowledge and harder multiple-choice reasoning
+    link: /en/cards/knowledge/mmlu-pro
+  - icon: 📋
+    title: Instruction Following
+    details: IFEval checks whether a model actually obeys explicit constraints
+    link: /en/cards/instruction-following/ifeval
+  - icon: 📚
+    title: Long Context
+    details: LongBench v2 stresses deep reasoning over realistic long materials
+    link: /en/cards/long-context/longbench-v2
+  - icon: 🔬
+    title: STEM
+    details: GPQA targets graduate-level science QA that is hard to shortcut with casual search
+    link: /en/cards/stem/gpqa
+  - icon: ➗
+    title: Math
+    details: AIME is a small but very hard closed-answer competition-math signal
+    link: /en/cards/math/aime
+  - icon: 🧩
+    title: Hard Reasoning
+    details: HLE pushes frontier models with expert-written closed-ended questions
+    link: /en/cards/hard-reasoning/hle
+  - icon: 🧠
+    title: Reasoning
+    details: LiveCodeBench tracks fresh code problems across generation, repair, and execution
+    link: /en/cards/reasoning/livecodebench
+  - icon: 🌐
     title: Search Agent
-    details: Tests a model's ability to persistently search the open web and track down hard-to-find information
+    details: BrowseComp and WideSearch cover both hard fact-chasing and broad research-style search
     link: /en/cards/search-agent/browsecomp
+  - icon: 🛠️
+    title: General Agent
+    details: BFCL V4, TAU2-Bench, and MCPMark cover tool use, business workflows, and MCP-native tasks
+    link: /en/cards/general-agent/bfcl-v4
   - icon: 💻
     title: Coding Agent
-    details: Tests a model's ability to read real codebases, understand issues, and generate patches that pass tests
+    details: SWE-bench and Terminal-Bench 2 measure repo repair and real terminal execution
     link: /en/cards/coding-agent/swebench
-  - icon: 📚
-    title: Knowledge (Coming Soon)
-    details: Tests factual QA across general and domain-specific knowledge
-  - icon: 🛠️
-    title: General Agent (Coming Soon)
-    details: Tests tool use, function calling, and multi-turn agent capabilities
+  - icon: 🈯
+    title: Translation
+    details: WMT24++ measures real many-language translation quality across 55 directions
+    link: /en/cards/translation/wmt24
+  - icon: 🌍
+    title: Multilingualism
+    details: MMMLU measures whether knowledge survives language switching
+    link: /en/cards/multilingualism/mmmlu
 ---
 
-## What Is This
+## What This Site Does
 
-A practical reference site that builds a standardized **explainer card** for each important LLM benchmark.
+This site builds a standardized **benchmark card** for each important LLM evaluation we want to keep in working memory.
 
 Every card answers 4 core questions:
 
@@ -43,27 +77,31 @@ Every card answers 4 core questions:
 | Should I use it?      | §6      |
 
 > [!TIP]
-> Not sure how to read these cards? Start with the [reading guide](/en/guide/how-to-read).
+> New here? Start with [How to Read a Card](/en/guide/how-to-read), then read [How We Source These Cards](/en/guide/how-we-source).
 
-## Capability Taxonomy
+## 12 Capability Categories, 16 Cards
 
-```mermaid
-flowchart TD
-    ROOT["LLM Capabilities"] --> K["Knowledge"]
-    ROOT --> IF["Instruction Following"]
-    ROOT --> LC["Long Context"]
-    ROOT --> STEM["STEM / Science"]
-    ROOT --> R["Reasoning"]
-    ROOT --> SA["Search Agent"]
-    ROOT --> GA["General Agent"]
-    ROOT --> CA["Coding Agent"]
-    ROOT --> ML["Multilingualism"]
+| Category | Benchmark Cards | What They Mainly Measure |
+| -------- | --------------- | ------------------------ |
+| Knowledge | [MMLU-Pro](/en/cards/knowledge/mmlu-pro) | Multi-subject knowledge plus harder MCQ reasoning |
+| Instruction Following | [IFEval](/en/cards/instruction-following/ifeval) | Whether explicit constraints are fully satisfied |
+| Long Context | [LongBench v2](/en/cards/long-context/longbench-v2) | Deep reasoning over long realistic materials |
+| STEM | [GPQA](/en/cards/stem/gpqa) | Graduate-level science QA |
+| Math | [AIME (MathArena)](/en/cards/math/aime) | Closed-answer competition math reasoning |
+| Hard Reasoning | [HLE](/en/cards/hard-reasoning/hle) | Frontier-level expert closed-ended reasoning |
+| Reasoning | [LiveCodeBench](/en/cards/reasoning/livecodebench) | Fresh code tasks and multi-scenario code reasoning |
+| Search Agent | [BrowseComp](/en/cards/search-agent/browsecomp), [WideSearch](/en/cards/search-agent/widesearch) | Hard fact pursuit and broad information gathering |
+| General Agent | [BFCL V4](/en/cards/general-agent/bfcl-v4), [TAU2-Bench](/en/cards/general-agent/tau2-bench), [MCPMark](/en/cards/general-agent/mcpmark) | Tool use, business workflows, and MCP-native tasks |
+| Coding Agent | [SWE-bench](/en/cards/coding-agent/swebench), [Terminal-Bench 2](/en/cards/coding-agent/terminal-bench-2) | Real repo repair and terminal execution |
+| Translation | [WMT24++](/en/cards/translation/wmt24) | Real many-language translation quality |
+| Multilingualism | [MMMLU](/en/cards/multilingualism/mmmlu) | Knowledge retention after language switching |
 
-    SA --> SA1["BrowseComp ✅"]
-    CA --> CA1["SWE-bench ✅"]
+## Suggested Reading Order
 
-    style SA1 fill:#27ae60,stroke:#1e8449,color:#fff
-    style CA1 fill:#27ae60,stroke:#1e8449,color:#fff
-```
+1. Start with [How to Read a Card](/en/guide/how-to-read) to understand the 6-section structure.
+2. Read [How We Source These Cards](/en/guide/how-we-source) so you know which official materials we trust first.
+3. Use [Cross-Card Comparison](/en/comparison) to pick the capability cluster you actually care about.
+4. Then open the specific card and focus on `§4 How It Works` and `§5 Reliability`.
 
-✅ = Card available &nbsp;|&nbsp; Other categories coming soon
+> [!NOTE]
+> Every card deliberately includes both the benchmark's value and the main ways its numbers can mislead you.
