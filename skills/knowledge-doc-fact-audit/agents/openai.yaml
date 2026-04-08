@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fact Audit Skill"
+  short_description: "Audit knowledge docs for factual accuracy"
+  default_prompt: "Use $knowledge-doc-fact-audit to review this knowledge document for factual accuracy, stale claims, and unsupported statements."
