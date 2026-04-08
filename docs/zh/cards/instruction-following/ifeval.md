@@ -40,28 +40,14 @@ verdict: recommended
 | 二级类目 | `Verifiable Constraint Satisfaction` |
 | 任务形态 | `response-format and constraint compliance` |
 | 风险标签 | 英文偏置 / 表面顺从 / 内容质量盲区 / taxonomy 有限 |
+| 相关扩展 | MaXIFE（把 IFEval 式约束检查扩展到多语言场景） |
 | 论文 | https://huggingface.co/papers/2311.07911 |
 | 官方实现 | https://github.com/google-research/google-research/tree/master/instruction_following_eval |
 | 输入数据 | https://github.com/google-research/google-research/tree/master/instruction_following_eval/data |
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -72,7 +58,7 @@ flowchart TD
     D --> E
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
 - 它最强的地方是：约束大多能被**程序检查**，不依赖 LLM judge。
 - 它测的是“有没有照做”，不是“内容有没有洞见”。
@@ -88,7 +74,7 @@ IFEval 测的是：
 
 1. 模型能不能识别 prompt 里的**显式约束**。
 2. 模型会不会在输出时真的**满足这些约束**。
-3. 当一个 prompt 同时要求多件事时，模型能不能**全部满足，而不是只满足一部分**。
+3. 当一个 prompt 同时要求多件事时，模型能不能**把这些要求全部满足**。
 
 它特别适合测这类失败：
 
@@ -113,7 +99,19 @@ IFEval 测的是：
 - case
 - punctuation
 
-这意味着 IFEval 更像在测“约束执行”，而不是测知识问答。
+这意味着 IFEval 的核心是“约束执行”，知识问答只可能作为承载形式。
+
+**公开示例**（来源：[google/IFEval](https://huggingface.co/datasets/google/IFEval)）：
+
+> Write a 300+ word summary of the wikipedia page "https://en.wikipedia.org/wiki/Raymond_III,_Count_of_Tripoli". Do not use any commas and highlight at least 3 sections that has titles in markdown format, for example *highlighted section part 1*, *highlighted section part 2*, *highlighted section part 3*.
+
+这条 prompt 同时嵌入了 3 个可验证约束：
+
+- `length_constraints:number_words`：至少 300 词
+- `punctuation:no_comma`：不使用逗号
+- `detectable_format:number_highlighted_sections`：至少高亮 3 个章节标题
+
+判分时，每个约束都能独立检查通过或失败。
 
 ### 4.3 模型要输出什么
 
@@ -131,7 +129,7 @@ IFEval 测的是：
 - 列表
 - JSON
 
-关键不在“内容题材”，而在“形式是否符合”。
+关键是输出形式是否符合约束要求。
 
 ### 4.4 数据是怎么做出来的
 
@@ -150,7 +148,7 @@ IFEval 测的是：
 
 ### 4.5 数据规模与分布
 
-需要记住的不是“题量很大”，而是“约束类型覆盖得够清楚”。
+这里更值得记住的是“约束类型覆盖得够清楚”。
 
 | 维度 | 信息 |
 | ---- | ---- |
@@ -159,7 +157,10 @@ IFEval 测的是：
 | 检查粒度 | prompt-level / instruction-level |
 | 评测口径 | strict / loose |
 
-所以 IFEval 的价值不在“大”，而在“干净”。
+所以 IFEval 的价值主要来自清晰的约束体系和可验证性。
+
+> [!TIP]
+> 如果你关心多语言 instruction following，可把 `MaXIFE` 当成 IFEval 的跨语言扩展：它在 2025 年把可验证 instruction 评测扩展到 23 种语言、1,667 个任务，用来补足 IFEval 的英文偏置。
 
 ### 4.6 怎么判分
 
@@ -175,7 +176,7 @@ IFEval 测的是：
 
 - 对回答做轻量修正后再检查
 - 例如去掉星号、去掉首行 / 末行，再尝试验证
-- 更像给格式噪声一点容错
+- 对格式噪声提供一定容错
 
 最终报告至少有两个核心指标：
 
@@ -196,17 +197,17 @@ IFEval 测的是：
 - 多轮协商能力
 - 非显式约束下的“默认礼貌程度”
 
-所以 IFEval 高分更接近：
+所以 IFEval 高分主要说明：
 
 > 这个模型能比较稳定地遵守显式指令。
 
-而不是：
+不要直接把它解读为：
 
 > 这个模型整体回答质量一定更高。
 
 ### 5.2 难度信号
 
-IFEval 的难点不在知识，而在**漏条件**。
+IFEval 的难点主要在**漏条件**。
 
 它对模型很苛刻的地方在于：
 
@@ -251,6 +252,7 @@ strict 与 loose 分数不能混着比较，loose 做了轻量修正后再验证
 - 你在做聊天产品、助手产品、写作工具
 - 你最怕“模型不照要求做”
 - 你想把 instruction following 从主观感受变成可量化指标
+- 你想把英文基线与多语言约束遵循版本（如 `MaXIFE`）拆开看
 
 ### 6.2 是否值得看
 

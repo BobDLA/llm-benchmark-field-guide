@@ -22,7 +22,7 @@ verdict: conditional
 
 ## 1. 一句话定义
 
-`Terminal-Bench 2` 是一个面向真实终端环境的 agent benchmark，测试模型能否在 sandbox 里完成端到端 CLI 任务，而不是只会写一段代码或只会调用一个工具。
+`Terminal-Bench 2` 是一个面向真实终端环境的 agent benchmark，测试模型能否在 sandbox 里完成端到端 CLI 任务。
 
 ## 2. 快速参考
 
@@ -40,7 +40,7 @@ verdict: conditional
 | 二级类目 | `Terminal Operation` |
 | 任务形态 | `end-to-end terminal agent evaluation` |
 | 风险标签 | beta 迭代 / adapter 依赖 / Docker 环境差异 / 任务覆盖尚浅 |
-| Repo | https://github.com/laude-institute/terminal-bench |
+| Repo | https://github.com/harbor-framework/terminal-bench |
 | Docs | https://www.tbench.ai/docs |
 | Harbor 运行文档 | https://harborframework.com/docs/running-tbench |
 | Leaderboard | https://www.tbench.ai/leaderboard |
@@ -48,22 +48,7 @@ verdict: conditional
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -73,9 +58,9 @@ flowchart TD
     D --> E["Task Success / Fail"]
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
-- 它测的是“在终端里把事情做完”，不是“讲出怎么做”。
+- 它测的是“在终端里把事情做完”，核心是实际执行。
 - 每个任务都包含 **instruction + test script + oracle solution** 三件套。
 - 当前还在 beta，官方 leaderboard 对应的是 `terminal-bench-core v0.1.1`。
 
@@ -89,7 +74,7 @@ Terminal-Bench 测的是：
 
 1. 模型能不能在真实终端环境里执行多步任务。
 2. 模型会不会正确使用 shell、工具链、文件系统和环境配置。
-3. 模型最终能否让系统状态满足目标，而不是只输出一段看似正确的文本。
+3. 模型最终能否让系统状态满足目标，不能停留在输出一段看似正确的文本。
 
 这类能力和 SWE-bench 有重叠，但不一样：
 
@@ -110,6 +95,12 @@ Terminal-Bench 测的是：
 - 可操作的 terminal sandbox
 - 必要的工具和环境
 
+**公开示例**（来源：[Terminal-Bench 官方 Repo](https://github.com/harbor-framework/terminal-bench) 与 Harbor 运行文档）：
+
+> **Instruction**: Install and configure a PostgreSQL database, create a table called `users` with columns `id`, `name`, and `email`, then insert 3 sample rows and export the table to a CSV file at `/output/users.csv`.
+
+模型面对的是一条自然语言任务和一个可操作终端。判分依据是最终状态是否满足测试；中间步骤写得是否漂亮并不决定得分。
+
 ### 4.3 模型要输出什么
 
 严格说，模型不需要“输出答案文本”。
@@ -120,7 +111,7 @@ Terminal-Bench 测的是：
 - 产生的文件或系统状态
 - 最后能否通过测试脚本
 
-这让它比很多文本型 benchmark 更像真实 agent 任务。
+这让它比很多文本型 benchmark 更接近真实 agent 任务。
 
 ### 4.4 数据是怎么做出来的
 
@@ -179,17 +170,17 @@ Terminal-Bench 测的是：
 - 需求理解与产品设计
 - 不依赖终端的复杂现实工作流
 
-它更像测：
+它主要测：
 
 > 文本代理在真实命令行里的执行能力。
 
 ### 5.2 难度信号
 
-Terminal-Bench 的难点并不只是“命令记不记得”，而是：
+Terminal-Bench 的难点主要在于：
 
 - 需要多步操作
 - 需要正确使用环境
-- 失败可能来自系统状态，而不是一句答案错
+- 失败常常来自系统状态或环境处理问题
 - 很多任务没有简单的“猜对”路径
 
 这让它比纯文本代码 benchmark 更接近真实 agent 落地难点。
@@ -199,7 +190,7 @@ Terminal-Bench 的难点并不只是“命令记不记得”，而是：
 #### 5.3.1 🏛️ 还在 beta
 
 官方自己明确写了会持续扩任务，数据和 leaderboard 都在演化。  
-来源：[官方 Repo](https://github.com/laude-institute/terminal-bench) README 状态说明。
+来源：[官方 Repo](https://github.com/harbor-framework/terminal-bench) README 状态说明。
 
 #### 5.3.2 🗣️ 运行框架影响很大
 
@@ -232,6 +223,6 @@ Harbor / adapter / sandbox 配置都会影响结果，跨提交比较需要标�
 
 ### 6.2 是否值得看
 
-> `Terminal-Bench 2` 很值得看，但现在更适合作为“前沿终端代理 benchmark”而不是最终稳定标准。解读时必须把版本、运行框架和 beta 状态写清楚。
+> `Terminal-Bench 2` 很值得看，但现在更适合作为“前沿终端代理 benchmark”的方向性参考，不宜视为最终稳定标准。解读时必须把版本、运行框架和 beta 状态写清楚。
 
 结论标签：`⚠️ 条件看`

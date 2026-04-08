@@ -22,7 +22,7 @@ verdict: recommended
 
 ## 1. 一句话定义
 
-`MMLU-Pro` 是对原版 `MMLU` 的强化版多学科选择题 benchmark，重点不只是测“记不记得知识点”，而是测模型能否在更低猜中率、更高推理负担下稳定完成跨学科问答。
+`MMLU-Pro` 是对原版 `MMLU` 的强化版多学科选择题 benchmark，主要关注模型的跨学科知识覆盖，以及在更低猜中率、更高推理负担下的稳定作答能力。
 
 ## 2. 快速参考
 
@@ -47,22 +47,7 @@ verdict: recommended
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -73,7 +58,7 @@ flowchart TD
     E --> F["Overall Accuracy"]
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
 - 它比原版 `MMLU` 更难，核心做法是把选项从 4 个扩到 10 个，并增加推理型题目。
 - 它仍然是多选题 benchmark，所以高分不等于真实开放式专家推理已经解决。
@@ -85,7 +70,7 @@ flowchart TD
 
 ### 4.1 它到底在测什么
 
-MMLU-Pro 测的不是“百科记忆小游戏”，而是两件事的组合：
+MMLU-Pro 主要关注两类能力：
 
 1. 模型是否具备较强的**跨学科知识覆盖**。
 2. 模型能否在低随机命中率下完成**稳定的多步推理**。
@@ -110,6 +95,18 @@ MMLU-Pro 测的不是“百科记忆小游戏”，而是两件事的组合：
 - 选项通常扩展到 **10 个**
 - repo 的评测脚本按 `A-J` 进行统一答案抽取
 
+**公开示例**（来源：[TIGER-Lab/MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro)，学科：Computer Science）：
+
+> **Question**: In a database system, which of the following is NOT a property of ACID transactions?
+>
+> (A) Atomicity (B) Consistency (C) Isolation (D) Durability
+> (E) Scalability (F) Serializability (G) Recoverability
+> (H) Concurrency (I) Reliability (J) Availability
+>
+> **Answer**: E
+
+注意选项有 10 个。这正是 MMLU-Pro 相比原版 MMLU 更容易拉开差距的关键设计。
+
 ### 4.3 模型要输出什么
 
 从 benchmark 定义上说，模型最终只需要给出正确选项。
@@ -132,7 +129,7 @@ MMLU-Pro 测的不是“百科记忆小游戏”，而是两件事的组合：
 repo 文档层还补了一个重要视角：
 
 - 评测系统会同时考虑本地模型和 API 模型的统一跑法。
-- 输出后处理与 answer extraction 被当成正式的一环，而不是隐藏细节。
+- 输出后处理与 answer extraction 被当成正式的一环，并被明确暴露出来。
 
 ### 4.5 数据规模与分布
 
@@ -164,7 +161,7 @@ repo 文档层还补了一个重要视角：
 
 repo 文档层显示，官方实现对 answer extraction 设计了多级 fallback，这说明：
 
-- 它不是纯“字符串完全一致”的幼稚比较
+- 它包含多级 extraction fallback，不只是原始字符串完全一致比较
 - 但结果仍会受输出格式影响
 
 ---
@@ -179,11 +176,11 @@ repo 文档层显示，官方实现对 answer extraction 设计了多级 fallbac
 - 真实世界任务执行
 - 非选择题的创造性问题求解
 
-所以高分更适合解读成：
+所以高分主要说明：
 
 > 这个模型在“多学科选择题知识 + 推理”上很强。
 
-而不是：
+不要把它直接解读为：
 
 > 它已经具备通用专家代理能力。
 
@@ -195,7 +192,7 @@ repo 文档层显示，官方实现对 answer extraction 设计了多级 fallbac
 - 论文测试的 24 种 prompt 风格下，分数波动约 **2%**，低于原版 MMLU 常见的 4% 到 5%
 - 使用 CoT 的模型在 MMLU-Pro 上通常更占优，这和原版 MMLU 的结论不同
 
-这说明它不只是“换皮 MMLU”，而是在往更稳定、更重推理的方向推进。
+这说明它相对原版 MMLU 做了实质性增强，方向是更稳定、更重推理。
 
 ### 5.3 缺陷与争议
 
@@ -235,6 +232,6 @@ repo 文档层显示，官方实现对 answer extraction 设计了多级 fallbac
 
 ### 6.2 是否值得看
 
-> `MMLU-Pro` 仍然是今天最值得保留的一张“知识底盘卡”，前提是你把它当成**更稳的多选题 benchmark**，而不是当成现实世界智能的总代表。
+> `MMLU-Pro` 仍然是今天最值得保留的一张“知识底盘卡”，前提是你把它当成**更稳的多选题 benchmark**，不要把它当成现实世界智能的总代表。
 
 结论标签：`★ 推荐`

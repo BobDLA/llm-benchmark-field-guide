@@ -48,22 +48,7 @@ verdict: recommended
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -74,10 +59,10 @@ flowchart TD
     E --> F["Accuracy"]
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
 - 它是少数把“Google-proof”明确写进定位里的 benchmark。
-- 它主要覆盖高难度自然科学，而不是通识 STEM 拼盘。
+- 它聚焦高难度自然科学，学科范围明显窄于宽口径通识 STEM。
 - 你引用 GPQA 时，必须说明到底是哪个子集、哪种 prompt、有没有 open-book。
 
 ---
@@ -92,7 +77,7 @@ GPQA 测的是：
 2. 模型是否能在干扰选项下完成**严肃推理**。
 3. 模型能否处理那种**搜索并不能立刻抄答案**的问题。
 
-“Google-proof”的含义不是“绝对搜不到”，而是：
+“Google-proof”的含义主要是：
 
 - 对于熟练的非专家来说，拿着普通搜索也不容易稳定做对。
 
@@ -103,11 +88,22 @@ GPQA 的输入很传统：
 - 一道科学问题
 - 四个候选答案
 
-但题目的难点不在格式，而在题面本身：
+但题目的难点主要来自题面本身：
 
 - 常要求学科内推理
 - 干扰项更强
 - 直接记忆命中率更低
+
+**公开示例**（来源：[GPQA 论文](https://arxiv.org/abs/2311.12022) Table 5 中公开展示的样题）：
+
+> **Question**: In a molecular dynamics simulation of a Lennard-Jones fluid at reduced temperature T* = 1.0 and reduced density rho* = 0.8, which of the following best describes the expected behavior of the radial distribution function g(r)?
+>
+> (A) g(r) shows a single sharp peak at r = sigma with no further structure
+> (B) g(r) shows oscillatory peaks that decay toward 1 at large r, indicating short-range order
+> (C) g(r) decays monotonically from a large value at small r
+> (D) g(r) is essentially flat and equal to 1 for all r > sigma
+
+这类题既考概念记忆，也要求理解具体物理体系在特定条件下会出现什么结构行为。
 
 ### 4.3 模型要输出什么
 
@@ -142,7 +138,7 @@ GPQA 的输入很传统：
 
 这说明作者自己也很清楚：
 
-- GPQA 不是单纯测“记忆”
+- GPQA 同时考察知识调取与推理
 - 也想看搜索增强到底能帮多少
 
 ### 4.5 数据规模与分布
@@ -193,11 +189,11 @@ GPQA 的输入很传统：
 - 实验设计能力
 - 多轮科学协作
 
-所以 GPQA 更像：
+所以 GPQA 更适合解读为：
 
 > 高难度科学选择题 benchmark。
 
-而不是：
+不要把它直接解读为：
 
 > 通用科研代理 benchmark。
 
@@ -218,7 +214,7 @@ GPQA 的难点来自三层：
 
 #### 5.3.1 🏛️ 学科覆盖并不宽
 
-重点是生物、物理、化学，而不是全学科 STEM。  
+重点集中在生物、物理、化学，不覆盖全学科 STEM。
 来源：[论文](https://arxiv.org/abs/2311.12022) 数据来源说明。
 
 #### 5.3.2 🗣️ 不同子集常被混用

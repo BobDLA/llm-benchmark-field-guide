@@ -48,22 +48,7 @@ verdict: conditional
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -74,9 +59,9 @@ flowchart TD
     E --> F["不直接并入主分"]
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
-- BFCL V4 已经不是老式 AST function-calling 小榜，而是明确朝 `agent benchmark` 演化。
+- BFCL V4 已从早期 AST function-calling 榜单扩展成更完整的 `agent benchmark`。
 - 官方总分是**加权平均**，只看 overall 很容易掩盖具体短板。
 - V4 还把 `format sensitivity` 做成了独立诊断层，这很符合真实产品问题。
 
@@ -106,7 +91,36 @@ BFCL V4 测的是更接近生产环境的工具调用能力：
 - Live endpoints
 - 多语言 schema / 请求表达
 
-所以一个样本不只是“给你函数签名，让你吐 JSON”，而是更像真实 agent 面对的工具环境。
+所以一个样本已经更接近真实 agent 面对的工具环境，包含多轮、memory 和 live endpoint 等因素。
+
+**公开示例**（来源：[BFCL 官方项目页](https://gorilla.cs.berkeley.edu/leaderboard) 与 Gorilla 文档）：
+
+**User Query**
+
+```text
+What's the weather in San Francisco?
+```
+
+**Available Functions**
+
+```json
+[
+  {
+    "name": "get_weather",
+    "description": "Get current weather for a city",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "unit": { "type": "string", "enum": ["celsius", "fahrenheit"] }
+      },
+      "required": ["city"]
+    }
+  }
+]
+```
+
+最基础的 case 看起来只是 function calling，但 V4 真正拉开差距的是多轮、memory、live endpoint 和 hallucination 子集。
 
 ### 4.3 模型要输出什么
 
@@ -117,7 +131,7 @@ BFCL V4 测的是更接近生产环境的工具调用能力：
 - 必要时的多轮调用序列
 - 与 live tool / memory 状态匹配的行为
 
-真正被评测的不是自然语言好不好看，而是：
+评测重点是：
 
 - **动作是否正确**
 - **动作序列是否合理**
@@ -151,7 +165,7 @@ BFCL V4 测的是更接近生产环境的工具调用能力：
 
 ### 4.6 怎么判分
 
-官方 overall score 不是简单平均，而是**加权汇总**：
+官方 overall score 采用**加权汇总**：
 
 - Agentic：40%
 - Multi-turn：30%
@@ -180,11 +194,11 @@ BFCL V4 测的是更接近生产环境的工具调用能力：
 - 真实企业后端权限体系
 - 终端 / repo 级复杂编码任务
 
-所以 BFCL V4 更像：
+所以 BFCL V4 更适合解读为：
 
 > 工具调用和 agentic tool-use 的中层基准。
 
-而不是：
+不要把它直接当成：
 
 > 通用代理系统的最终考试。
 
@@ -233,7 +247,7 @@ V4 的难点非常现实：
 ### 6.1 适用场景
 
 - 你在做 function calling / tool-use / MCP 类产品
-- 你需要一个比“单次 JSON 调用”更像 agent 的 benchmark
+- 你需要一个比“单次 JSON 调用”更接近 agent 工作流的 benchmark
 - 你想知道模型是不是在 memory、web search、multi-turn 上真的稳
 
 ### 6.2 是否值得看
