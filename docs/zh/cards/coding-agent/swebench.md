@@ -99,11 +99,11 @@ flowchart LR
 
 ### 4.1 它到底在测什么
 
-SWE-bench 测的**不是**“单函数补全”或“纸面算法题”，而是：
+SWE-bench 主要关注以下能力：
 
 1. 模型能否**读懂真实 issue**，把自然语言问题映射到代码修改任务。
 2. 模型能否在**真实代码仓库里导航定位**，找到相关文件、类和测试。
-3. 模型能否做出**跨文件、可执行的补丁修改**，而不是只给口头建议。
+3. 模型能否做出**跨文件、可执行的补丁修改**，并把问题落到实际代码变更上。
 4. 模型能否在**受测试约束的工程环境**下完成修复，而非生成“看起来对”的代码。
 
 与 HumanEval/MBPP 这类传统 code generation benchmark 的差异：
@@ -136,7 +136,7 @@ requests, scikit-learn, seaborn, sphinx, sympy, xarray
 > **django/django#13933**: `FloatField` validates `Decimal` incorrectly  
 > When a `Decimal` value is passed to a `FloatField`, the validator incorrectly rejects values that should be valid...
 
-模型要做的不是复述 issue，而是顺着这段描述找到相关实现位置并完成修复。
+模型需要顺着这段描述找到相关实现位置并完成修复。
 
 ### 4.3 模型要输出什么
 
@@ -158,7 +158,7 @@ requests, scikit-learn, seaborn, sphinx, sympy, xarray
 
 ### 4.4 数据是怎么做出来的
 
-SWE-bench 不是人工编题，而是从真实软件开发流程中反向抽样：
+SWE-bench 的实例来自真实软件开发流程中的反向抽样：
 
 1. 从目标仓库收集已关闭的 GitHub issue 与对应 PR
 2. 只保留**有测试变更或可验证测试**的实例
@@ -255,7 +255,7 @@ SWE-bench 没有像 BrowseComp 那样稳定、常被引用的人类统一基线�
 - **评测口径**：先固定子集（通常看 Verified），再固定 agent scaffold；官方页面明确支持用 `mini-SWE-agent` / Bash-only 视图压缩变量
 - **使用 harness**：不同 agent loop、检索工具、预算限制会显著改变分数
 
-目前更稳妥的结论不是“谁比谁高 0.8 个百分点”，而是：
+目前更稳妥的结论是：
 
 - Verified 头部分数已经进入**高位拥挤区**
 - scaffold 差异足以让同一底模出现**两位数百分点波动**

@@ -81,7 +81,7 @@ features:
 
 点击任一卡片直接进入解读。
 
-| **能力类目** | **Benchmark 卡片** | **更像在测什么** |
+| **能力类目** | **Benchmark 卡片** | **主要测什么** |
 |------------|-------------------|---------------|
 | 🔍 Knowledge | [MMLU-Pro](/zh/cards/knowledge/mmlu-pro) | 多学科知识 + 多选推理 |
 | 📋 Instruction Following | [IFEval](/zh/cards/instruction-following/ifeval) | 显式约束有没有全部做到 |

@@ -22,7 +22,7 @@ verdict: recommended
 
 ## 1. 一句话定义
 
-`MCPMark` 是一张专门评估 `Model Context Protocol` 工具使用能力的 benchmark，重点不是测“会不会输出 JSON”，而是测模型在真实 MCP server 环境里能不能选对工具、完成多步操作并产出正确结果。
+`MCPMark` 是一张专门评估 `Model Context Protocol` 工具使用能力的 benchmark，主要关注模型能否在真实 MCP server 环境里选对工具、完成多步操作并产出正确结果。
 
 ## 2. 快速参考
 
@@ -58,7 +58,7 @@ flowchart TD
 ### 3.2 如果你只看三件事
 
 - 这是当前少数**直接围绕 MCP 原生生态**设计的 benchmark。
-- 它更适合看“会不会把 MCP 真用起来”，而不是泛化的 tool use 幻觉。
+- 它最适合观察模型是否能把 MCP 真正用起来。
 - 解释分数时要特别注意 server 版本和环境配置，因为 MCP 生态变化很快。
 
 ---
@@ -102,7 +102,7 @@ MCPMark 主要测三件事：
 > - create `large_files/` for files `> 700` bytes
 > - move every file into the correct subdirectory
 
-这虽然只是 Filesystem 子集里的一个任务，但已经能体现 MCPMark 的核心：模型不是在“描述怎么做”，而是要真的通过 MCP server 把目录状态改对。
+这虽然只是 Filesystem 子集里的一个任务，但已经能体现 MCPMark 的核心：模型需要真的通过 MCP server 把目录状态改对。
 
 ### 4.3 模型要输出什么
 
@@ -113,7 +113,7 @@ MCPMark 主要测三件事：
 - 参数怎么填
 - 是否需要多步串联
 
-最终看的不是回复是否“像会用工具”，而是：
+最终看的是：
 
 - 任务到底成没成
 
@@ -121,7 +121,7 @@ MCPMark 主要测三件事：
 
 官方 repo 的核心设计非常明确：
 
-1. 使用真实 MCP server 生态，而不是抽象出来的假 schema；
+1. 使用真实 MCP server 生态，不依赖抽象出来的假 schema；
 2. 任务覆盖多个 server，避免只测单一工具；
 3. 通过 `pass@k` 反映 agent 行为的随机性与探索性。
 
@@ -171,17 +171,17 @@ MCPMark 主要测三件事：
 - 开放互联网搜索
 - 非 MCP 协议下的全部工具生态
 
-所以 MCPMark 高分更接近：
+所以 MCPMark 高分主要说明：
 
 > 这个模型更会用 MCP 工具。
 
-而不是：
+不要直接把它解读为：
 
 > 这个模型已经是全能 agent。
 
 ### 5.2 难度信号
 
-它的难点不是“知道 MCP 是什么”，而是：
+它的难点主要在于：
 
 - 真实 server 之间能力不同
 - 参数和调用顺序容易出错

@@ -22,7 +22,7 @@ verdict: recommended
 
 ## 1. 一句话定义
 
-`WideSearch` 是一张强调**搜索广度**的信息寻求 benchmark，重点不是在开放网页里追一条极绕的线索，而是看模型能不能为复杂信息需求主动扩展搜索空间、组织多源证据并给出完整回答。
+`WideSearch` 是一张强调**搜索广度**的信息寻求 benchmark，主要关注模型能否围绕复杂信息需求主动扩展搜索空间、组织多源证据并给出完整回答。
 
 ## 2. 快速参考
 
@@ -67,24 +67,24 @@ flowchart TD
 
 ### 4.1 它到底在测什么
 
-WideSearch 关注的是更像研究助手的问题：
+WideSearch 关注的是更接近研究助手的问题：
 
 1. 模型能不能识别一个复杂需求需要从哪些方向搜。
-2. 能不能主动扩展搜索空间，而不是过早收敛。
+2. 能不能主动扩展搜索空间，避免过早收敛。
 3. 能不能把不同来源的信息拼成结构完整的回答。
 
-它测的不是：
+它的评测边界很清楚：
 
 - 单跳网页问答
 - 唯一事实的极限追踪
 
-而是更接近：
+它主要关注：
 
 > 面对复杂信息需求，模型有没有“广搜 + 组织”的能力。
 
 ### 4.2 输入长什么样
 
-输入通常不是一句简单 factoid question，而更像：
+输入通常不是简单 factoid question，常见形态包括：
 
 - 一个研究需求
 - 一个需要多角度覆盖的问题
@@ -96,23 +96,23 @@ WideSearch 关注的是更像研究助手的问题：
 - search space expansion
 - evidence organization
 
-这说明 WideSearch 从设计上就不是“短答案题库”。
+这说明 WideSearch 从设计上就偏向复杂信息组织任务。
 
 **公开示例**（来源：[ByteDance-Seed/WideSearch](https://huggingface.co/datasets/ByteDance-Seed/WideSearch)，任务 `ws_en_001`）：
 
 > 帮我整理 `QS World University Rankings by Subject 2025` 五个 broad subjects 的前五所大学，并同时补齐这些学校在 `QS World University Rankings 2025`、`Times Higher Education World University Rankings 2025`、官网首页、常规申请截止日期和申请费中的信息，最后输出成一张 Markdown 表。
 
-这个例子很典型：难点不在某个单一事实，而在于要跨多个来源把一整张表补完整，而且尽量不能漏列、漏字段或填错学校。
+这个例子很典型：难点在于要跨多个来源把一整张表补完整，而且尽量不能漏列、漏字段或填错学校。
 
 ### 4.3 模型要输出什么
 
-模型需要输出的不只是最终结论，还要体现：
+模型需要输出最终结论，并体现：
 
 - 找到了哪些关键信息源
 - 是否覆盖了需求的不同方面
 - 能否把材料组织成完整答案
 
-所以它比传统短答案 browsing benchmark 更像一个 research workflow benchmark。
+所以它比传统短答案 browsing benchmark 更接近一个 research workflow benchmark。
 
 ### 4.4 数据是怎么做出来的
 
@@ -120,7 +120,7 @@ WideSearch 关注的是更像研究助手的问题：
 
 1. 构造 200 个复杂信息需求；
 2. 让任务天然需要“广度优先”搜索；
-3. 通过多维评测判断模型是否真的扩展了搜索，而不是只抓到局部信息。
+3. 通过多维评测判断模型是否真的扩展了搜索，避免只抓到局部信息。
 
 这让它和 BrowseComp 的差异非常清楚：
 
@@ -171,7 +171,7 @@ WideSearch 使用的是更混合的评测思路：
 - 真实代码修复
 - 单一唯一答案的极限事实追踪
 
-它更像测：
+它主要测：
 
 > 复杂信息需求下的广搜与整合。
 
