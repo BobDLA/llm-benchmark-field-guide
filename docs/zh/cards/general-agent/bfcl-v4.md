@@ -48,22 +48,7 @@ verdict: conditional
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -74,7 +59,7 @@ flowchart TD
     E --> F["不直接并入主分"]
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
 - BFCL V4 已经不是老式 AST function-calling 小榜，而是明确朝 `agent benchmark` 演化。
 - 官方总分是**加权平均**，只看 overall 很容易掩盖具体短板。

@@ -47,30 +47,7 @@ verdict: conditional
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题找章节
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-
-    START --> Q1["这东西<br/>是什么？"]
-    START --> Q2["它怎么<br/>运作的？"]
-    START --> Q3["它可靠<br/>吗？"]
-    START --> Q4["我该用<br/>它吗？"]
-
-    Q1 --> A1["§1 一句话定义<br/>§2 快速参考"]
-    Q2 --> A2["§4 它怎么运作<br/>4.1 测什么<br/>4.2 输入<br/>4.3 输出<br/>4.4 数据构造<br/>4.5 规模分布<br/>4.6 判分"]
-    Q3 --> A3["§5 它可靠吗<br/>5.1 能力边界<br/>5.2 难度信号<br/>5.3 缺陷争议<br/>5.4 风险表"]
-    Q4 --> A4["§6 我该用它吗<br/>6.1 适用场景<br/>6.2 是否值得看"]
-
-    style START fill:#4a90d9,stroke:#2c5f8a,color:#fff
-    style Q1 fill:#f5a623,stroke:#c7841a,color:#fff
-    style Q2 fill:#7ed321,stroke:#5a9e18,color:#fff
-    style Q3 fill:#d0021b,stroke:#a3011b,color:#fff
-    style Q4 fill:#9013fe,stroke:#6a0fba,color:#fff
-```
-
-### 3.2 核心逻辑链：从真实 issue 到 `% Resolved`
+### 3.1 核心逻辑链：从真实 issue 到 `% Resolved`
 
 ```mermaid
 flowchart TD
@@ -103,7 +80,7 @@ flowchart TD
     数据 --> 任务 --> 评分 --> 局限
 ```
 
-### 3.3 家族演化：为什么今天有这么多 SWE-bench 版本
+### 3.2 家族演化：为什么今天有这么多 SWE-bench 版本
 
 ```mermaid
 flowchart LR

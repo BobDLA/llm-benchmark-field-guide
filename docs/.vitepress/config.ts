@@ -32,56 +32,76 @@ export default withMermaid(
         themeConfig: {
           nav: [
             { text: '首页', link: '/zh/' },
-            { text: '卡片', link: '/zh/comparison' },
-            { text: '对比', link: '/zh/comparison' },
-            { text: '指南', link: '/zh/guide/how-to-read' },
+            { text: '开始阅读', link: '/zh/cards/guide/how-to-read' },
           ],
           sidebar: {
             '/zh/cards/': [
               {
-                text: 'Knowledge',
+                text: '📖 阅读指南',
+                collapsed: false,
+                items: [
+                  { text: '怎么读一张卡片', link: '/zh/cards/guide/how-to-read' },
+                  { text: '这些卡片怎么取材', link: '/zh/cards/guide/how-we-source' },
+                ],
+              },
+              {
+                text: '🗺️ 跨卡片对比',
+                collapsed: false,
+                items: [
+                  { text: '对比纵览', link: '/zh/cards/comparison' },
+                ],
+              },
+              {
+                text: '🔍 Knowledge · 知识',
                 collapsed: false,
                 items: [
                   { text: 'MMLU-Pro', link: '/zh/cards/knowledge/mmlu-pro' },
                 ],
               },
               {
-                text: 'Instruction Following',
+                text: '📋 Instruction Following · 指令遵循',
                 collapsed: false,
                 items: [
                   { text: 'IFEval', link: '/zh/cards/instruction-following/ifeval' },
                 ],
               },
               {
-                text: 'Long Context',
+                text: '📚 Long Context · 长上下文',
                 collapsed: false,
                 items: [
                   { text: 'LongBench v2', link: '/zh/cards/long-context/longbench-v2' },
                 ],
               },
               {
-                text: 'STEM',
+                text: '🔬 STEM · 科学',
                 collapsed: false,
                 items: [
                   { text: 'GPQA', link: '/zh/cards/stem/gpqa' },
                 ],
               },
               {
-                text: 'Reasoning',
+                text: '🧠 Reasoning · 推理',
                 collapsed: false,
                 items: [
                   { text: 'LiveCodeBench', link: '/zh/cards/reasoning/livecodebench' },
                 ],
               },
               {
-                text: 'Search Agent',
+                text: '🌐 Search Agent · 搜索代理',
                 collapsed: false,
                 items: [
                   { text: 'BrowseComp', link: '/zh/cards/search-agent/browsecomp' },
                 ],
               },
               {
-                text: 'Coding Agent',
+                text: '🛠️ General Agent · 通用代理',
+                collapsed: false,
+                items: [
+                  { text: 'BFCL V4', link: '/zh/cards/general-agent/bfcl-v4' },
+                ],
+              },
+              {
+                text: '💻 Coding Agent · 代码代理',
                 collapsed: false,
                 items: [
                   { text: 'SWE-bench', link: '/zh/cards/coding-agent/swebench' },
@@ -89,34 +109,10 @@ export default withMermaid(
                 ],
               },
               {
-                text: 'General Agent',
-                collapsed: false,
-                items: [
-                  { text: 'BFCL V4', link: '/zh/cards/general-agent/bfcl-v4' },
-                ],
-              },
-              {
-                text: 'Multilingualism',
+                text: '🌍 Multilingualism · 多语言',
                 collapsed: false,
                 items: [
                   { text: 'MMMLU', link: '/zh/cards/multilingualism/mmmlu' },
-                ],
-              },
-            ],
-            '/zh/guide/': [
-              {
-                text: '指南',
-                items: [
-                  { text: '怎么读一张卡片', link: '/zh/guide/how-to-read' },
-                  { text: '这些卡片怎么取材', link: '/zh/guide/how-we-source' },
-                ],
-              },
-            ],
-            '/zh/comparison': [
-              {
-                text: '对比',
-                items: [
-                  { text: 'BrowseComp vs SWE-bench', link: '/zh/comparison' },
                 ],
               },
             ],

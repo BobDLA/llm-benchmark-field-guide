@@ -1,13 +1,20 @@
 ---
-layout: home
-hero:
-  name: LLM Benchmark Field Guide
-  tagline: A practical guide to what each benchmark really measures
-  actions:
-    - theme: brand
-      text: 中文版
-      link: /zh/
-    - theme: alt
-      text: English
-      link: /en/
+layout: page
 ---
+
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const lang = navigator.language || navigator.userLanguage || ''
+  if (lang.startsWith('zh')) {
+    window.location.replace('./zh/')
+  } else {
+    window.location.replace('./en/')
+  }
+})
+</script>
+
+<div style="display:flex;align-items:center;justify-content:center;min-height:50vh;">
+  <p>Redirecting…</p>
+</div>

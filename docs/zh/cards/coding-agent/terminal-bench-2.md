@@ -48,22 +48,7 @@ verdict: conditional
 
 ## 3. 卡片导航
 
-### 3.1 按你的问题跳读
-
-```mermaid
-flowchart LR
-    START(("你想知道<br/>什么？"))
-    START --> Q1["它是啥？"]
-    START --> Q2["它怎么跑？"]
-    START --> Q3["它靠谱吗？"]
-    START --> Q4["该不该看？"]
-    Q1 --> A1["§1-§2"]
-    Q2 --> A2["§4.1-§4.6"]
-    Q3 --> A3["§5.1-§5.4"]
-    Q4 --> A4["§6.1-§6.2"]
-```
-
-### 3.2 核心流程
+### 3.1 核心流程
 
 ```mermaid
 flowchart TD
@@ -73,7 +58,7 @@ flowchart TD
     D --> E["Task Success / Fail"]
 ```
 
-### 3.3 如果你只看三件事
+### 3.2 如果你只看三件事
 
 - 它测的是“在终端里把事情做完”，不是“讲出怎么做”。
 - 每个任务都包含 **instruction + test script + oracle solution** 三件套。
