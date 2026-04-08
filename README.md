@@ -126,4 +126,7 @@ There are also guide pages for:
 
 ## License
 
-No license file is currently included in this repository. Add one if you want to make reuse terms explicit.
+This repository is released under the [Apache License 2.0](./LICENSE).
+
+- Code, documentation, and benchmark-card content are all covered by the same repository-wide license unless a file says otherwise.
+- This keeps reuse permissive while preserving the standard Apache 2.0 terms around attribution, notices, and patent grants.

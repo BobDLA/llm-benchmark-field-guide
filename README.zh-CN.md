@@ -127,4 +127,7 @@ docs/.vitepress/dist
 
 ## License
 
-当前仓库还没有附带许可证文件。如果希望明确复用范围，需要额外补充 `LICENSE`。
+本仓库采用 [Apache License 2.0](./LICENSE)。
+
+- 除非单个文件另有说明，代码、文档和 benchmark 卡片内容统一适用这一仓库级许可证。
+- 它依然属于宽松许可证，同时保留 Apache 2.0 常见的署名、NOTICE 与专利授权条款。
