@@ -40,6 +40,7 @@ verdict: recommended
 | 二级类目 | `Verifiable Constraint Satisfaction` |
 | 任务形态 | `response-format and constraint compliance` |
 | 风险标签 | 英文偏置 / 表面顺从 / 内容质量盲区 / taxonomy 有限 |
+| 相关扩展 | MaXIFE（把 IFEval 式约束检查扩展到多语言场景） |
 | 论文 | https://huggingface.co/papers/2311.07911 |
 | 官方实现 | https://github.com/google-research/google-research/tree/master/instruction_following_eval |
 | 输入数据 | https://github.com/google-research/google-research/tree/master/instruction_following_eval/data |
@@ -100,6 +101,18 @@ IFEval 测的是：
 
 这意味着 IFEval 更像在测“约束执行”，而不是测知识问答。
 
+**公开示例**（来源：[google/IFEval](https://huggingface.co/datasets/google/IFEval)）：
+
+> Write a 300+ word summary of the wikipedia page "https://en.wikipedia.org/wiki/Raymond_III,_Count_of_Tripoli". Do not use any commas and highlight at least 3 sections that has titles in markdown format, for example *highlighted section part 1*, *highlighted section part 2*, *highlighted section part 3*.
+
+这条 prompt 同时嵌入了 3 个可验证约束：
+
+- `length_constraints:number_words`：至少 300 词
+- `punctuation:no_comma`：不使用逗号
+- `detectable_format:number_highlighted_sections`：至少高亮 3 个章节标题
+
+判分时，每个约束都能独立检查通过或失败。
+
 ### 4.3 模型要输出什么
 
 模型输出是自由文本。
@@ -145,6 +158,9 @@ IFEval 测的是：
 | 评测口径 | strict / loose |
 
 所以 IFEval 的价值不在“大”，而在“干净”。
+
+> [!TIP]
+> 如果你关心多语言 instruction following，可把 `MaXIFE` 当成 IFEval 的跨语言扩展：它在 2025 年把可验证 instruction 评测扩展到 23 种语言、1,667 个任务，用来补足 IFEval 的英文偏置。
 
 ### 4.6 怎么判分
 
@@ -236,6 +252,7 @@ strict 与 loose 分数不能混着比较，loose 做了轻量修正后再验证
 - 你在做聊天产品、助手产品、写作工具
 - 你最怕“模型不照要求做”
 - 你想把 instruction following 从主观感受变成可量化指标
+- 你想把英文基线与多语言约束遵循版本（如 `MaXIFE`）拆开看
 
 ### 6.2 是否值得看
 

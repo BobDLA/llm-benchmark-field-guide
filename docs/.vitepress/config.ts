@@ -80,6 +80,20 @@ export default withMermaid(
                 ],
               },
               {
+                text: '➗ Math · 数学',
+                collapsed: false,
+                items: [
+                  { text: 'AIME (MathArena)', link: '/zh/cards/math/aime' },
+                ],
+              },
+              {
+                text: '🧩 Hard Reasoning · 硬推理',
+                collapsed: false,
+                items: [
+                  { text: 'HLE', link: '/zh/cards/hard-reasoning/hle' },
+                ],
+              },
+              {
                 text: '🧠 Reasoning · 推理',
                 collapsed: false,
                 items: [
@@ -91,6 +105,7 @@ export default withMermaid(
                 collapsed: false,
                 items: [
                   { text: 'BrowseComp', link: '/zh/cards/search-agent/browsecomp' },
+                  { text: 'WideSearch', link: '/zh/cards/search-agent/widesearch' },
                 ],
               },
               {
@@ -98,6 +113,8 @@ export default withMermaid(
                 collapsed: false,
                 items: [
                   { text: 'BFCL V4', link: '/zh/cards/general-agent/bfcl-v4' },
+                  { text: 'TAU2-Bench', link: '/zh/cards/general-agent/tau2-bench' },
+                  { text: 'MCPMark', link: '/zh/cards/general-agent/mcpmark' },
                 ],
               },
               {
@@ -106,6 +123,13 @@ export default withMermaid(
                 items: [
                   { text: 'SWE-bench', link: '/zh/cards/coding-agent/swebench' },
                   { text: 'Terminal-Bench 2', link: '/zh/cards/coding-agent/terminal-bench-2' },
+                ],
+              },
+              {
+                text: '🈯 Translation · 翻译',
+                collapsed: false,
+                items: [
+                  { text: 'WMT24++', link: '/zh/cards/translation/wmt24' },
                 ],
               },
               {

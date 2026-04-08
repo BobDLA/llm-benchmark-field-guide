@@ -39,6 +39,7 @@ verdict: conditional
 | 二级类目 | `Multilingual QA` |
 | 任务形态 | `translated multilingual multiple-choice knowledge benchmark` |
 | 风险标签 | 原版 MMLU 继承缺陷 / 翻译痕迹 / 非原生题目 / 文化覆盖有限 |
+| 相关扩展 | MMLU-ProX（把更高难度的 MMLU-Pro 思路扩到 29 种语言） |
 | Dataset | https://huggingface.co/datasets/openai/MMMLU |
 | Eval Repo | https://github.com/openai/simple-evals |
 | 原始 MMLU 论文 | https://arxiv.org/abs/2009.03300 |
@@ -108,6 +109,17 @@ MMMLU 测的是：
 - Yoruba
 - Simplified Chinese
 
+**公开示例**（来源：[openai/MMMLU](https://huggingface.co/datasets/openai/MMMLU)，locale: `zh-CN`）：
+
+> **Question**: 在计算机科学中，以下哪项最能描述“死锁”？
+>
+> (A) 两个进程都在等待对方释放资源
+> (B) 一个进程占用了所有可用内存
+> (C) 操作系统崩溃并需要重启
+> (D) 程序进入无限循环
+
+它的本质就是把同一类知识题翻译到目标语言后再看模型会不会明显掉点。
+
 ### 4.3 模型要输出什么
 
 模型最终输出正确选项即可。
@@ -146,6 +158,9 @@ MMMLU 测的是：
 
 - 同一模型在多语言上的掉点曲线
 - 低资源语言与高资源语言的差距
+
+> [!TIP]
+> 如果你需要比 MMMLU 更难、并且与 `MMLU-Pro` 平行的多语知识 benchmark，可把 `MMLU-ProX` 当成它的进阶扩展：该项目在 2025 年把 MMLU-Pro 扩展到 29 种语言，并保留了更强的推理负担。
 
 ### 4.6 怎么判分
 
@@ -225,6 +240,7 @@ MMMLU 的价值不在“题更难”，而在“语言切换造成的损失是�
 - 你要看模型多语言知识保持
 - 你想比较英语和非英语掉点
 - 你关心低资源语言能力是否“只是宣传词”
+- 你想在 `MMMLU` 之外，再补更高难度的多语知识信号（如 `MMLU-ProX`）
 
 ### 6.2 是否值得看
 

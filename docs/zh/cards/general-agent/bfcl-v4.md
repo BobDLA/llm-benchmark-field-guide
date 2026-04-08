@@ -93,6 +93,35 @@ BFCL V4 测的是更接近生产环境的工具调用能力：
 
 所以一个样本不只是“给你函数签名，让你吐 JSON”，而是更像真实 agent 面对的工具环境。
 
+**公开示例**（来源：[BFCL 官方项目页](https://gorilla.cs.berkeley.edu/leaderboard) 与 Gorilla 文档）：
+
+**User Query**
+
+```text
+What's the weather in San Francisco?
+```
+
+**Available Functions**
+
+```json
+[
+  {
+    "name": "get_weather",
+    "description": "Get current weather for a city",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "unit": { "type": "string", "enum": ["celsius", "fahrenheit"] }
+      },
+      "required": ["city"]
+    }
+  }
+]
+```
+
+最基础的 case 看起来只是 function calling，但 V4 真正拉开差距的是多轮、memory、live endpoint 和 hallucination 子集。
+
 ### 4.3 模型要输出什么
 
 输出通常包括：

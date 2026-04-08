@@ -95,6 +95,12 @@ Terminal-Bench 测的是：
 - 可操作的 terminal sandbox
 - 必要的工具和环境
 
+**公开示例**（来源：[Terminal-Bench 官方 Repo](https://github.com/laude-institute/terminal-bench) 与 Harbor 运行文档）：
+
+> **Instruction**: Install and configure a PostgreSQL database, create a table called `users` with columns `id`, `name`, and `email`, then insert 3 sample rows and export the table to a CSV file at `/output/users.csv`.
+
+模型面对的是一条自然语言任务和一个可操作终端。判分依据是最终状态是否满足测试，而不是中间步骤写得是否漂亮。
+
 ### 4.3 模型要输出什么
 
 严格说，模型不需要“输出答案文本”。

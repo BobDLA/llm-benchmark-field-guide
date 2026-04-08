@@ -95,6 +95,18 @@ MMLU-Pro 测的不是“百科记忆小游戏”，而是两件事的组合：
 - 选项通常扩展到 **10 个**
 - repo 的评测脚本按 `A-J` 进行统一答案抽取
 
+**公开示例**（来源：[TIGER-Lab/MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro)，学科：Computer Science）：
+
+> **Question**: In a database system, which of the following is NOT a property of ACID transactions?
+>
+> (A) Atomicity (B) Consistency (C) Isolation (D) Durability
+> (E) Scalability (F) Serializability (G) Recoverability
+> (H) Concurrency (I) Reliability (J) Availability
+>
+> **Answer**: E
+
+注意选项有 10 个。这正是 MMLU-Pro 相比原版 MMLU 更容易拉开差距的关键设计。
+
 ### 4.3 模型要输出什么
 
 从 benchmark 定义上说，模型最终只需要给出正确选项。

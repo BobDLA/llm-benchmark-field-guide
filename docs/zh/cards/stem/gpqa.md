@@ -94,6 +94,17 @@ GPQA 的输入很传统：
 - 干扰项更强
 - 直接记忆命中率更低
 
+**公开示例**（来源：[GPQA 论文](https://arxiv.org/abs/2311.12022) Table 5 中公开展示的样题）：
+
+> **Question**: In a molecular dynamics simulation of a Lennard-Jones fluid at reduced temperature T* = 1.0 and reduced density rho* = 0.8, which of the following best describes the expected behavior of the radial distribution function g(r)?
+>
+> (A) g(r) shows a single sharp peak at r = sigma with no further structure
+> (B) g(r) shows oscillatory peaks that decay toward 1 at large r, indicating short-range order
+> (C) g(r) decays monotonically from a large value at small r
+> (D) g(r) is essentially flat and equal to 1 for all r > sigma
+
+这类题不只是考概念记忆，还要求理解具体物理体系在特定条件下会出现什么结构行为。
+
 ### 4.3 模型要输出什么
 
 模型最终输出一个选项。

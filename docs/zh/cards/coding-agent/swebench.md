@@ -131,7 +131,7 @@ astropy, django, flask, matplotlib, pylint, pytest,
 requests, scikit-learn, seaborn, sphinx, sympy, xarray
 ```
 
-一个典型输入长这样：
+**公开示例**（来源：SWE-bench 官方公开 issue 样例）：
 
 > **django/django#13933**: `FloatField` validates `Decimal` incorrectly  
 > When a `Decimal` value is passed to a `FloatField`, the validator incorrectly rejects values that should be valid...

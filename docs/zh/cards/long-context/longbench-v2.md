@@ -95,6 +95,16 @@ LongBench v2 测的是：
 
 这意味着它虽然是长上下文 benchmark，但输入结构仍然比较规整，便于横向比较。
 
+**公开示例**（来源：[THUDM/LongBench-v2](https://huggingface.co/datasets/THUDM/LongBench-v2)）：
+
+> **domain**: Single-Document QA
+> **question**: 根据文档内容，作者提出的核心论点是什么？
+> **choice_A**: ...  **choice_B**: ...  **choice_C**: ...  **choice_D**: ...
+> **context**: [8k-2M 词的完整文档]
+> **difficulty**: hard | **length**: long
+
+真实样本里的 `context` 会非常长。重点不在题面，而在模型是否真能从超长材料里找证据并完成推理。
+
 ### 4.3 模型要输出什么
 
 从 benchmark 角度，模型只需要输出正确选项。

@@ -94,6 +94,15 @@ LiveCodeBench 测的是更广义的代码能力：
 
 相比 SWE-bench，这里的输入更像竞赛题 / 算法题工作流，而不是仓库级 issue 修复。
 
+**公开示例**（来源：[livecodebench/code_generation_lite](https://huggingface.co/datasets/livecodebench/code_generation_lite)，题目原始来源为公开竞赛平台）：
+
+> **题目描述**：给定一个整数数组 `nums` 和一个整数 `k`，返回所有长度为 `k` 的子数组中的最大元素之和。
+>
+> **输入格式**：第一行两个整数 `n, k`；第二行 `n` 个整数
+> **输出格式**：一个整数
+
+这里的关键不是题型新奇，而是题目来自较新的竞赛时间窗，能更好地压低训练数据污染。
+
 ### 4.3 模型要输出什么
 
 按场景不同，模型输出可能是：
