@@ -32,12 +32,47 @@ export default withMermaid(
         themeConfig: {
           nav: [
             { text: '首页', link: '/zh/' },
-            { text: '卡片', link: '/zh/cards/search-agent/browsecomp' },
+            { text: '卡片', link: '/zh/comparison' },
             { text: '对比', link: '/zh/comparison' },
             { text: '指南', link: '/zh/guide/how-to-read' },
           ],
           sidebar: {
             '/zh/cards/': [
+              {
+                text: 'Knowledge',
+                collapsed: false,
+                items: [
+                  { text: 'MMLU-Pro', link: '/zh/cards/knowledge/mmlu-pro' },
+                ],
+              },
+              {
+                text: 'Instruction Following',
+                collapsed: false,
+                items: [
+                  { text: 'IFEval', link: '/zh/cards/instruction-following/ifeval' },
+                ],
+              },
+              {
+                text: 'Long Context',
+                collapsed: false,
+                items: [
+                  { text: 'LongBench v2', link: '/zh/cards/long-context/longbench-v2' },
+                ],
+              },
+              {
+                text: 'STEM',
+                collapsed: false,
+                items: [
+                  { text: 'GPQA', link: '/zh/cards/stem/gpqa' },
+                ],
+              },
+              {
+                text: 'Reasoning',
+                collapsed: false,
+                items: [
+                  { text: 'LiveCodeBench', link: '/zh/cards/reasoning/livecodebench' },
+                ],
+              },
               {
                 text: 'Search Agent',
                 collapsed: false,
@@ -50,6 +85,21 @@ export default withMermaid(
                 collapsed: false,
                 items: [
                   { text: 'SWE-bench', link: '/zh/cards/coding-agent/swebench' },
+                  { text: 'Terminal-Bench 2', link: '/zh/cards/coding-agent/terminal-bench-2' },
+                ],
+              },
+              {
+                text: 'General Agent',
+                collapsed: false,
+                items: [
+                  { text: 'BFCL V4', link: '/zh/cards/general-agent/bfcl-v4' },
+                ],
+              },
+              {
+                text: 'Multilingualism',
+                collapsed: false,
+                items: [
+                  { text: 'MMMLU', link: '/zh/cards/multilingualism/mmmlu' },
                 ],
               },
             ],
@@ -58,6 +108,7 @@ export default withMermaid(
                 text: '指南',
                 items: [
                   { text: '怎么读一张卡片', link: '/zh/guide/how-to-read' },
+                  { text: '这些卡片怎么取材', link: '/zh/guide/how-we-source' },
                 ],
               },
             ],
