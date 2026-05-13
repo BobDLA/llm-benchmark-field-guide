@@ -1,6 +1,6 @@
 # 跨卡片对比
 
-当前站点已上线 16 张核心卡片：
+当前站点已上线 23 张核心卡片：
 
 - `MMLU-Pro`：Knowledge / Robust Multi-Subject QA
 - `IFEval`：Instruction Following / Verifiable Constraint Satisfaction
@@ -18,10 +18,17 @@
 - `Terminal-Bench 2`：Coding Agent / Terminal Operation
 - `WMT24++`：Translation / Multilingual MT
 - `MMMLU`：Multilingualism / Multilingual QA
+- `Vision General Benchmarks`：Vision / Multimodal / General
+- `Vision STEM Benchmarks`：Vision / Multimodal / STEM
+- `Vision Document / OCR / Chart Benchmarks`：Vision / Multimodal / Document
+- `Vision Grounding and GUI Benchmarks`：Vision / Multimodal / Grounding / GUI
+- `Vision Multi-Image Benchmarks`：Vision / Multimodal / Multi-Image
+- `Vision Hallucination Benchmarks`：Vision / Multimodal / Hallucination
+- `Vision Video Understanding Benchmarks`：Vision / Multimodal / Video
 
 这页不替代单卡阅读，而是帮你先判断“要优先看哪一类 benchmark”。
 
-## 一眼看懂：这 16 张卡分别在测什么
+## 一眼看懂：当前 16 张单 benchmark 卡分别在测什么
 
 | Benchmark | 类目 | 主要测什么 | 主要评分 | 使用时最该警惕什么 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -114,6 +121,105 @@
 - `Terminal-Bench 2` 更偏终端里的端到端任务执行
 - 两者都和 coding agent 相关，但不是一回事
 
+## 视觉 / 多模态 benchmark 已补入专题卡
+
+你给的截图现在已经整理进 7 张视觉 / 多模态专题卡。它们不是“把所有榜单名字平铺成 30 张短卡”，而是按能力簇收口，方便真正阅读。
+
+### General
+
+- `MMBench EN v1.1`
+- `MMBench CN v1.1`
+- `MMStar`
+- `AI2D`
+- `MMT-Bench`
+
+### STEM
+
+- `MMMU`
+- `MathVista`
+- `MMMU-Pro`
+- `MathVerse_MINI`
+- `WeMath`
+- `DynaMath`
+
+### Document / OCR / Chart
+
+- `OCRBench`
+- `OCRBench_v2_EN`
+- `OCRBench_v2_CN`
+- `OmniDocBench_v1.5`
+- `DocVQA_VAL`
+- `CharXiv (reasoning subset)`
+
+### Grounding
+
+- `RefCOCO`
+
+### Multi-Image
+
+- `BLINK`
+- `MUIRBench`
+- `MMSI-Bench`
+
+### Hallucination
+
+- `HallusionBench`
+- `MMHal-Score`
+- `MMHal-Hallrate`
+
+### GUI
+
+- `ScreenSpot_Mobile`
+- `ScreenSpot_Desktop`
+- `ScreenSpot_Web`
+
+### Video Understanding
+
+- `Video-MME (w/o subs)`
+- `LVBench`
+- `MLVU (M-Avg)`
+- `LongVideoBench (val)`
+- `MotionBench`
+
+### 对应专题卡
+
+- [General](/zh/cards/vision/general)
+- [STEM](/zh/cards/vision/stem)
+- [Document / OCR / Chart](/zh/cards/vision/document-ocr-chart)
+- [Grounding and GUI](/zh/cards/vision/grounding-gui)
+- [Multi-Image](/zh/cards/vision/multi-image)
+- [Hallucination](/zh/cards/vision/hallucination)
+- [Video Understanding](/zh/cards/vision/video-understanding)
+
+### 直达 benchmark 家族
+
+- [MMBench](/zh/cards/vision/general#mmbench)
+- [MMStar](/zh/cards/vision/general#mmstar)
+- [AI2D](/zh/cards/vision/general#ai2d)
+- [MMT-Bench](/zh/cards/vision/general#mmt-bench)
+- [MMMU](/zh/cards/vision/stem#mmmu)
+- [MathVista](/zh/cards/vision/stem#mathvista)
+- [MMMU-Pro](/zh/cards/vision/stem#mmmu-pro)
+- [MathVerse_MINI](/zh/cards/vision/stem#mathverse-mini)
+- [WeMath](/zh/cards/vision/stem#wemath)
+- [DynaMath](/zh/cards/vision/stem#dynamath)
+- [OCRBench](/zh/cards/vision/document-ocr-chart#ocrbench--ocrbench-v2)
+- [OmniDocBench](/zh/cards/vision/document-ocr-chart#omnidocbench-v15)
+- [DocVQA_VAL](/zh/cards/vision/document-ocr-chart#docvqa-val)
+- [CharXiv (reasoning subset)](/zh/cards/vision/document-ocr-chart#charxiv-reasoning)
+- [RefCOCO](/zh/cards/vision/grounding-gui#refcoco)
+- [ScreenSpot](/zh/cards/vision/grounding-gui#screenspot)
+- [BLINK](/zh/cards/vision/multi-image#blink)
+- [MUIRBench](/zh/cards/vision/multi-image#muirbench)
+- [MMSI-Bench](/zh/cards/vision/multi-image#mmsi-bench)
+- [HallusionBench](/zh/cards/vision/hallucination#hallusionbench)
+- [MMHal](/zh/cards/vision/hallucination#mmhal)
+- [Video-MME](/zh/cards/vision/video-understanding#video-mme)
+- [LVBench](/zh/cards/vision/video-understanding#lvbench)
+- [MLVU](/zh/cards/vision/video-understanding#mlvu)
+- [LongVideoBench](/zh/cards/vision/video-understanding#longvideobench)
+- [MotionBench](/zh/cards/vision/video-understanding#motionbench)
+
 ## 当前建议阅读顺序
 
 1. 先看[来源方法](/zh/cards/guide/how-we-source)，知道每张卡为什么这么写。
@@ -123,6 +229,6 @@
 
 ## 当前结论
 
-> 现在这 16 张卡已经能覆盖一条更完整的判断路径：  
+> 现在这 16 张单 benchmark 卡，再加上 7 张视觉专题卡，已经能覆盖一条更完整的判断路径：  
 > 先看知识、科学、数学与硬推理底盘，再看长上下文与新鲜推理，再看搜索、工具调用、对话代理与代码执行，最后补上翻译与多语能力。  
 > 主要风险在于拿一张卡替代整个能力簇。

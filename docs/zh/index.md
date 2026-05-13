@@ -61,6 +61,10 @@ features:
     title: Multilingualism · 多语言
     details: "MMMLU (+ MMLU-ProX) — 语言切换后的知识保持"
     link: /zh/cards/multilingualism/mmmlu
+  - icon: 🖼️
+    title: Vision / Multimodal · 视觉多模态
+    details: "MMBench · MMMU · OCRBench · ScreenSpot · Video-MME 等多模态专题卡"
+    link: /zh/cards/vision/general
 ---
 
 ## 项目简介
@@ -77,9 +81,9 @@ features:
 > [!TIP]
 > 第一次来？先看 [怎么读一张卡片](/zh/cards/guide/how-to-read)，2 分钟搞定阅读路径。
 
-## 12 个能力类目 · 16 张卡片
+## 13 个能力类目 · 23 张卡片
 
-点击任一卡片直接进入解读。
+当前结构包括 `16` 张单 benchmark 卡和 `7` 张视觉 / 多模态专题卡。点击任一卡片直接进入解读。
 
 | **能力类目** | **Benchmark 卡片** | **主要测什么** |
 |------------|-------------------|---------------|
@@ -95,6 +99,7 @@ features:
 | 💻 Coding Agent | [SWE-bench](/zh/cards/coding-agent/swebench)、[Terminal-Bench 2](/zh/cards/coding-agent/terminal-bench-2) | 真实仓库修复 / 终端执行 |
 | 🈯 Translation | [WMT24++](/zh/cards/translation/wmt24) | 多语言真实翻译质量 |
 | 🌍 Multilingualism | [MMMLU](/zh/cards/multilingualism/mmmlu) | 语言切换后的知识保持 |
+| 🖼️ Vision / Multimodal | [MMBench](/zh/cards/vision/general#mmbench)、[MMStar](/zh/cards/vision/general#mmstar)、[AI2D](/zh/cards/vision/general#ai2d)、[MMMU](/zh/cards/vision/stem#mmmu)、[MathVista](/zh/cards/vision/stem#mathvista)、[OCRBench](/zh/cards/vision/document-ocr-chart#ocrbench--ocrbench-v2)、[DocVQA](/zh/cards/vision/document-ocr-chart#docvqa-val)、[RefCOCO](/zh/cards/vision/grounding-gui#refcoco)、[ScreenSpot](/zh/cards/vision/grounding-gui#screenspot)、[BLINK](/zh/cards/vision/multi-image#blink)、[HallusionBench](/zh/cards/vision/hallucination#hallusionbench)、[MMHal](/zh/cards/vision/hallucination#mmhal)、[Video-MME](/zh/cards/vision/video-understanding#video-mme)、[MLVU](/zh/cards/vision/video-understanding#mlvu) | 通用视觉、视觉 STEM、文档、GUI、多图、幻觉与视频理解 |
 
 ## 建议阅读顺序
 

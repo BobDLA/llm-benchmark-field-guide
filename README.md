@@ -21,7 +21,20 @@ Notes:
 
 ## Current Coverage
 
-The site currently includes 16 benchmark cards across 12 capability categories:
+The site currently includes 23 cards across 13 capability categories: 16 single-benchmark cards plus 7 vision / multimodal cluster cards.
+
+The site now also includes a vision / multimodal cluster-card expansion across these capability groups:
+
+- General
+- STEM
+- Document / OCR / Chart
+- Grounding
+- Multi-Image
+- Hallucination
+- GUI
+- Video Understanding
+
+The currently completed card categories are:
 
 - Knowledge
 - Instruction Following
@@ -35,6 +48,7 @@ The site currently includes 16 benchmark cards across 12 capability categories:
 - Coding Agent
 - Translation
 - Multilingualism
+- Vision / Multimodal
 
 ## Project Structure
 

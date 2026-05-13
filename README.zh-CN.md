@@ -21,7 +21,20 @@
 
 ## 当前覆盖
 
-站点目前包含 12 个能力类目、16 张 benchmark 卡片：
+站点目前包含 13 个能力类目、23 张卡片，其中包括 16 张单 benchmark 卡和 7 张视觉 / 多模态专题卡。
+
+其中新增了一组视觉 / 多模态专题卡，覆盖这些能力簇：
+
+- General
+- STEM
+- Document / OCR / Chart
+- Grounding
+- Multi-Image
+- Hallucination
+- GUI
+- Video Understanding
+
+当前已完成卡片的能力类目是：
 
 - Knowledge
 - Instruction Following
@@ -35,6 +48,7 @@
 - Coding Agent
 - Translation
 - Multilingualism
+- Vision / Multimodal
 
 ## 目录结构
 

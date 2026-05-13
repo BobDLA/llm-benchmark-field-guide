@@ -61,6 +61,10 @@ features:
     title: Multilingualism
     details: MMMLU measures whether knowledge survives language switching
     link: /en/cards/multilingualism/mmmlu
+  - icon: 🖼️
+    title: Vision / Multimodal
+    details: MMBench, MMMU, OCRBench, ScreenSpot, and Video-MME cluster cards
+    link: /en/cards/vision/general
 ---
 
 ## What This Site Does
@@ -79,7 +83,9 @@ Every card answers 4 core questions:
 > [!TIP]
 > New here? Start with [How to Read a Card](/en/guide/how-to-read), then read [How We Source These Cards](/en/guide/how-we-source).
 
-## 12 Capability Categories, 16 Cards
+## 13 Capability Categories, 23 Cards
+
+This includes `16` single-benchmark cards and `7` vision / multimodal cluster cards.
 
 | Category | Benchmark Cards | What They Mainly Measure |
 | -------- | --------------- | ------------------------ |
@@ -95,6 +101,7 @@ Every card answers 4 core questions:
 | Coding Agent | [SWE-bench](/en/cards/coding-agent/swebench), [Terminal-Bench 2](/en/cards/coding-agent/terminal-bench-2) | Real repo repair and terminal execution |
 | Translation | [WMT24++](/en/cards/translation/wmt24) | Real many-language translation quality |
 | Multilingualism | [MMMLU](/en/cards/multilingualism/mmmlu) | Knowledge retention after language switching |
+| Vision / Multimodal | [MMBench](/en/cards/vision/general#mmbench), [MMStar](/en/cards/vision/general#mmstar), [AI2D](/en/cards/vision/general#ai2d), [MMMU](/en/cards/vision/stem#mmmu), [MathVista](/en/cards/vision/stem#mathvista), [OCRBench](/en/cards/vision/document-ocr-chart#ocrbench--ocrbench-v2), [DocVQA](/en/cards/vision/document-ocr-chart#docvqa-val), [RefCOCO](/en/cards/vision/grounding-gui#refcoco), [ScreenSpot](/en/cards/vision/grounding-gui#screenspot), [BLINK](/en/cards/vision/multi-image#blink), [HallusionBench](/en/cards/vision/hallucination#hallusionbench), [MMHal](/en/cards/vision/hallucination#mmhal), [Video-MME](/en/cards/vision/video-understanding#video-mme), [MLVU](/en/cards/vision/video-understanding#mlvu) | General vision, visual STEM, documents, GUI, multi-image, hallucination, and video understanding |
 
 ## Suggested Reading Order
 

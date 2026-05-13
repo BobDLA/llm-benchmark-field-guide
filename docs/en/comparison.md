@@ -1,6 +1,6 @@
 # Cross-Card Comparison
 
-The site currently includes 16 core cards:
+The site currently includes 23 core cards:
 
 - `MMLU-Pro`: Knowledge / Robust Multi-Subject QA
 - `IFEval`: Instruction Following / Verifiable Constraint Satisfaction
@@ -18,6 +18,13 @@ The site currently includes 16 core cards:
 - `Terminal-Bench 2`: Coding Agent / Terminal Operation
 - `WMT24++`: Translation / Multilingual Machine Translation
 - `MMMLU`: Multilingualism / Multilingual QA
+- `Vision General Benchmarks`: Vision / Multimodal / General
+- `Vision STEM Benchmarks`: Vision / Multimodal / STEM
+- `Vision Document / OCR / Chart Benchmarks`: Vision / Multimodal / Document
+- `Vision Grounding and GUI Benchmarks`: Vision / Multimodal / Grounding / GUI
+- `Vision Multi-Image Benchmarks`: Vision / Multimodal / Multi-Image
+- `Vision Hallucination Benchmarks`: Vision / Multimodal / Hallucination
+- `Vision Video Understanding Benchmarks`: Vision / Multimodal / Video
 
 This page is not a substitute for the single-card writeups. Its job is to help you decide which benchmark family to read first.
 
@@ -109,6 +116,76 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 
 - `SWE-bench` is centered on real GitHub issue repair.
 - `Terminal-Bench 2` is centered on end-to-end CLI execution.
+
+## Vision / Multimodal Benchmarks Are Now Covered by Cluster Cards
+
+The benchmark rows from the screenshot are now grouped into 7 vision / multimodal cluster cards. This is more usable than flattening every row name into dozens of tiny pages.
+
+### General
+
+- `MMBench EN v1.1`
+- `MMBench CN v1.1`
+- `MMStar`
+- `AI2D`
+- `MMT-Bench`
+
+### STEM
+
+- `MMMU`
+- `MathVista`
+- `MMMU-Pro`
+- `MathVerse_MINI`
+- `WeMath`
+- `DynaMath`
+
+### Document / OCR / Chart
+
+- `OCRBench`
+- `OCRBench_v2_EN`
+- `OCRBench_v2_CN`
+- `OmniDocBench_v1.5`
+- `DocVQA_VAL`
+- `CharXiv_Reasoning`
+
+### Grounding
+
+- `RefCOCO`
+
+### Multi-Image
+
+- `BLINK`
+- `MUIRBench`
+- `MMSI-Bench`
+
+### Hallucination
+
+- `HallusionBench`
+- `MMHal-Score`
+- `MMHal-Hallrate`
+
+### GUI
+
+- `ScreenSpot_Mobile`
+- `ScreenSpot_Desktop`
+- `ScreenSpot_Web`
+
+### Video Understanding
+
+- `Video-MME (w/o subs)`
+- `LVBench`
+- `MLVU (M-Avg)`
+- `LongVideoBench (val)`
+- `MotionBench`
+
+### Cluster Cards
+
+- [General](/en/cards/vision/general)
+- [STEM](/en/cards/vision/stem)
+- [Document / OCR / Chart](/en/cards/vision/document-ocr-chart)
+- [Grounding and GUI](/en/cards/vision/grounding-gui)
+- [Multi-Image](/en/cards/vision/multi-image)
+- [Hallucination](/en/cards/vision/hallucination)
+- [Video Understanding](/en/cards/vision/video-understanding)
 
 ## Suggested Reading Order
 
