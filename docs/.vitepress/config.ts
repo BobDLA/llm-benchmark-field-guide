@@ -71,6 +71,8 @@ export default withMermaid(
                 items: [
                   { text: 'LongBench v2', link: '/zh/cards/long-context/longbench-v2' },
                   { text: 'LongMemEval', link: '/zh/cards/long-context/longmemeval' },
+                  { text: 'LoCoMo', link: '/zh/cards/long-context/locomo' },
+                  { text: 'ConvoMem', link: '/zh/cards/long-context/convomem' },
                 ],
               },
               {
@@ -238,6 +240,8 @@ export default withMermaid(
                 items: [
                   { text: 'LongBench v2', link: '/en/cards/long-context/longbench-v2' },
                   { text: 'LongMemEval', link: '/en/cards/long-context/longmemeval' },
+                  { text: 'LoCoMo', link: '/en/cards/long-context/locomo' },
+                  { text: 'ConvoMem', link: '/en/cards/long-context/convomem' },
                 ],
               },
               {

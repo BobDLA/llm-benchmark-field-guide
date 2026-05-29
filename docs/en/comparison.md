@@ -1,11 +1,13 @@
 # Cross-Card Comparison
 
-The site currently includes 24 core cards:
+The site currently includes 26 core cards:
 
 - `MMLU-Pro`: Knowledge / Robust Multi-Subject QA
 - `IFEval`: Instruction Following / Verifiable Constraint Satisfaction
 - `LongBench v2`: Long Context / Deep Long-Context Reasoning
 - `LongMemEval`: Long Context / Long-Term Interactive Memory
+- `LoCoMo`: Long Context / Long-Term Conversational Memory
+- `ConvoMem`: Long Context / Conversational Memory
 - `GPQA`: STEM / Graduate Science QA
 - `AIME (MathArena)`: Math / Competition Math
 - `HLE`: Hard Reasoning / Frontier Closed-Ended Reasoning
@@ -37,6 +39,8 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 | IFEval | Instruction Following | Whether explicit constraints are fully obeyed | rule-based checks | content-quality blind spots |
 | LongBench v2 | Long Context | Deep reasoning over long realistic context | accuracy | length and reasoning are entangled |
 | LongMemEval | Long Context | Long-term chat memory, retrieval, updates, temporal reasoning, and abstention | LLM judge + retrieval recall | cleaned-version, judge, and memory-system protocol mixing |
+| LoCoMo | Long Context | Very long open-domain dialogue QA, event summarization, and multimodal dialogue | F1 / recall | current 10-conversation subset vs initial 50-conversation release |
+| ConvoMem | Long Context | Large-scale conversational memory, updates, preferences, abstention, and implicit connections | accuracy / rubrics | synthetic CRM setting and context-size protocol mixing |
 | GPQA | STEM | Graduate-level science QA | accuracy | subset mixing and narrow domain coverage |
 | AIME (MathArena) | Math | Closed-answer competition math reasoning | exact match | tiny sample size and budget mixing |
 | HLE | Hard Reasoning | Expert-written frontier closed-ended reasoning | automated grading | answer ambiguity and version drift |
@@ -69,6 +73,8 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 
 - Read [LongBench v2](/en/cards/long-context/longbench-v2) for long-context reasoning.
 - Read [LongMemEval](/en/cards/long-context/longmemeval) for long-term interactive memory.
+- Add [LoCoMo](/en/cards/long-context/locomo) for very long open-domain dialogue diagnostics.
+- Add [ConvoMem](/en/cards/long-context/convomem) for large-scale conversational-memory comparisons.
 - Add [LiveCodeBench](/en/cards/reasoning/livecodebench) for fresh code reasoning and code-task breadth.
 
 ### "Can the model search or act like a research assistant?"
@@ -99,11 +105,13 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 - `AIME` is a narrower but cleaner closed-answer competition-math signal.
 - `HLE` is broader and tries to stress frontier reasoning across expert domains.
 
-### `LongBench v2` vs `LongMemEval`
+### `LongBench v2` vs `LongMemEval` vs `LoCoMo` vs `ConvoMem`
 
 - `LongBench v2` is about deep reasoning over long materials provided at once.
 - `LongMemEval` is about persistent memory over accumulated chat-assistant interactions.
-- One is primarily a long-context reading signal; the other is closer to a memory-system benchmark.
+- `LoCoMo` is a small, high-quality diagnostic set for very long open-domain conversations.
+- `ConvoMem` is a larger, category-controlled conversational-memory benchmark.
+- All four are long-context related, but they should not be substituted for one another.
 
 ### `BrowseComp` vs `WideSearch`
 
@@ -204,4 +212,4 @@ The benchmark rows from the screenshot are now grouped into 7 vision / multimoda
 
 ## Bottom Line
 
-> The current 17 single-benchmark cards plus 7 vision cluster cards support a fuller evaluation path: knowledge, science, math, and hard reasoning; then long context, memory, and fresh reasoning; then search, tool use, business agents, and coding agents; and finally translation and multilingualism. The biggest recurring mistake is to treat one card as a substitute for an entire capability cluster.
+> The current 19 single-benchmark cards plus 7 vision cluster cards support a fuller evaluation path: knowledge, science, math, and hard reasoning; then long context, conversational memory, and fresh reasoning; then search, tool use, business agents, and coding agents; and finally translation and multilingualism. The biggest recurring mistake is to treat one card as a substitute for an entire capability cluster.

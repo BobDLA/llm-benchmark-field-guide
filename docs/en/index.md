@@ -23,7 +23,7 @@ features:
     link: /en/cards/instruction-following/ifeval
   - icon: 📚
     title: Long Context
-    details: LongBench v2 and LongMemEval cover long-context reasoning and long-term interactive memory
+    details: LongBench v2, LongMemEval, LoCoMo, and ConvoMem cover long-context reasoning and conversational memory
     link: /en/cards/long-context/longbench-v2
   - icon: 🔬
     title: STEM
@@ -83,15 +83,15 @@ Every card answers 4 core questions:
 > [!TIP]
 > New here? Start with [How to Read a Card](/en/guide/how-to-read), then read [How We Source These Cards](/en/guide/how-we-source).
 
-## 13 Capability Categories, 24 Cards
+## 13 Capability Categories, 26 Cards
 
-This includes `17` single-benchmark cards and `7` vision / multimodal cluster cards.
+This includes `19` single-benchmark cards and `7` vision / multimodal cluster cards.
 
 | Category | Benchmark Cards | What They Mainly Measure |
 | -------- | --------------- | ------------------------ |
 | Knowledge | [MMLU-Pro](/en/cards/knowledge/mmlu-pro) | Multi-subject knowledge plus harder MCQ reasoning |
 | Instruction Following | [IFEval](/en/cards/instruction-following/ifeval) | Whether explicit constraints are fully satisfied |
-| Long Context | [LongBench v2](/en/cards/long-context/longbench-v2), [LongMemEval](/en/cards/long-context/longmemeval) | Long-context reasoning and long-term interactive memory |
+| Long Context | [LongBench v2](/en/cards/long-context/longbench-v2), [LongMemEval](/en/cards/long-context/longmemeval), [LoCoMo](/en/cards/long-context/locomo), [ConvoMem](/en/cards/long-context/convomem) | Long-context reasoning, long-term interactive memory, and conversational memory |
 | STEM | [GPQA](/en/cards/stem/gpqa) | Graduate-level science QA |
 | Math | [AIME (MathArena)](/en/cards/math/aime) | Closed-answer competition math reasoning |
 | Hard Reasoning | [HLE](/en/cards/hard-reasoning/hle) | Frontier-level expert closed-ended reasoning |

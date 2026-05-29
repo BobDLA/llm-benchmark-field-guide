@@ -1,11 +1,13 @@
 # 跨卡片对比
 
-当前站点已上线 24 张核心卡片：
+当前站点已上线 26 张核心卡片：
 
 - `MMLU-Pro`：Knowledge / Robust Multi-Subject QA
 - `IFEval`：Instruction Following / Verifiable Constraint Satisfaction
 - `LongBench v2`：Long Context / Deep Long-Context Reasoning
 - `LongMemEval`：Long Context / Long-Term Interactive Memory
+- `LoCoMo`：Long Context / Long-Term Conversational Memory
+- `ConvoMem`：Long Context / Conversational Memory
 - `GPQA`：STEM / Graduate Science QA
 - `AIME (MathArena)`：Math / Competition Math
 - `HLE`：Hard Reasoning / Frontier Expert QA
@@ -29,7 +31,7 @@
 
 这页不替代单卡阅读，而是帮你先判断“要优先看哪一类 benchmark”。
 
-## 一眼看懂：当前 17 张单 benchmark 卡分别在测什么
+## 一眼看懂：当前 19 张单 benchmark 卡分别在测什么
 
 | Benchmark | 类目 | 主要测什么 | 主要评分 | 使用时最该警惕什么 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -37,6 +39,8 @@
 | IFEval | Instruction Following | 显式约束有没有全部做到 | rule-based | 内容质量盲区 |
 | LongBench v2 | Long Context | 长材料深理解与推理 | accuracy | 长度与推理混杂 |
 | LongMemEval | Long Context | 长期聊天历史里的记忆检索、更新、时间推理与拒答 | LLM judge + retrieval recall | cleaned 版本、judge 和记忆系统口径混用 |
+| LoCoMo | Long Context | 超长期开放域会话里的 QA、事件总结与多模态对话 | F1 / recall | 10 条子集与初版 50 条口径混用 |
+| ConvoMem | Long Context | 大规模会话记忆、状态更新、偏好、拒答与隐式连接 | accuracy / rubrics | CRM 合成场景与 context-size 口径混用 |
 | GPQA | STEM | 研究生难度自然科学问答 | accuracy | 子集混用 |
 | AIME (MathArena) | Math | 竞赛数学 final-answer 推理 | exact match | 年份 / 采样 / 工具口径混用 |
 | HLE | Hard Reasoning | 前沿专家级 closed-ended 硬题 | auto grading | 答案噪声与修订 |
@@ -69,6 +73,8 @@
 
 - 长材料理解先看 `LongBench v2`
 - 长期交互记忆先看 `LongMemEval`
+- 超长期开放域会话诊断加看 `LoCoMo`
+- 大规模会话记忆分项比较加看 `ConvoMem`
 - 新鲜代码题与代码推理加看 `LiveCodeBench`
 
 ### 我想知道模型会不会搜、会不会做 research assistant
@@ -100,11 +106,13 @@
 - `HLE` 更广，混合很多专家难题与部分多模态题
 - 一个主要看“高难数学压测”，一个主要看“前沿 closed-ended 总压测”
 
-### `LongBench v2` vs `LongMemEval`
+### `LongBench v2` vs `LongMemEval` vs `LoCoMo` vs `ConvoMem`
 
 - `LongBench v2` 更偏一次性给超长材料后的深理解与推理
 - `LongMemEval` 更偏聊天助手长期交互历史中的记忆、检索、更新、时间推理和拒答
-- 一个是长上下文阅读推理信号，一个更接近 memory system benchmark
+- `LoCoMo` 更偏少量高质量、很长的开放域会话诊断
+- `ConvoMem` 更偏大规模、可控类别的 conversational memory 系统评测
+- 四者都和长上下文有关，但不要互相替代
 
 ### `BrowseComp` vs `WideSearch`
 
@@ -238,6 +246,6 @@
 
 ## 当前结论
 
-> 现在这 17 张单 benchmark 卡，再加上 7 张视觉专题卡，已经能覆盖一条更完整的判断路径：  
-> 先看知识、科学、数学与硬推理底盘，再看长上下文与新鲜推理，再看搜索、工具调用、对话代理与代码执行，最后补上翻译与多语能力。  
+> 现在这 19 张单 benchmark 卡，再加上 7 张视觉专题卡，已经能覆盖一条更完整的判断路径：  
+> 先看知识、科学、数学与硬推理底盘，再看长上下文、会话记忆与新鲜推理，再看搜索、工具调用、对话代理与代码执行，最后补上翻译与多语能力。  
 > 主要风险在于拿一张卡替代整个能力簇。

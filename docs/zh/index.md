@@ -23,7 +23,7 @@ features:
     link: /zh/cards/instruction-following/ifeval
   - icon: 📚
     title: Long Context · 长上下文
-    details: "LongBench v2 · LongMemEval — 长材料推理与长期交互记忆"
+    details: "LongBench v2 · LongMemEval · LoCoMo · ConvoMem — 长材料推理与会话记忆"
     link: /zh/cards/long-context/longbench-v2
   - icon: 🔬
     title: STEM · 科学
@@ -81,15 +81,15 @@ features:
 > [!TIP]
 > 第一次来？先看 [怎么读一张卡片](/zh/cards/guide/how-to-read)，2 分钟搞定阅读路径。
 
-## 13 个能力类目 · 24 张卡片
+## 13 个能力类目 · 26 张卡片
 
-当前结构包括 `17` 张单 benchmark 卡和 `7` 张视觉 / 多模态专题卡。点击任一卡片直接进入解读。
+当前结构包括 `19` 张单 benchmark 卡和 `7` 张视觉 / 多模态专题卡。点击任一卡片直接进入解读。
 
 | **能力类目** | **Benchmark 卡片** | **主要测什么** |
 |------------|-------------------|---------------|
 | 🔍 Knowledge | [MMLU-Pro](/zh/cards/knowledge/mmlu-pro) | 多学科知识 + 多选推理 |
 | 📋 Instruction Following | [IFEval](/zh/cards/instruction-following/ifeval) | 显式约束有没有全部做到 |
-| 📚 Long Context | [LongBench v2](/zh/cards/long-context/longbench-v2)、[LongMemEval](/zh/cards/long-context/longmemeval) | 长材料深理解与长期交互记忆 |
+| 📚 Long Context | [LongBench v2](/zh/cards/long-context/longbench-v2)、[LongMemEval](/zh/cards/long-context/longmemeval)、[LoCoMo](/zh/cards/long-context/locomo)、[ConvoMem](/zh/cards/long-context/convomem) | 长材料深理解、长期交互记忆与会话记忆 |
 | 🔬 STEM | [GPQA](/zh/cards/stem/gpqa) | 研究生难度科学问答 |
 | ➗ Math | [AIME (MathArena)](/zh/cards/math/aime) | 竞赛数学 final-answer 推理 |
 | 🧩 Hard Reasoning | [HLE](/zh/cards/hard-reasoning/hle) | 前沿专家级 closed-ended 硬题 |
