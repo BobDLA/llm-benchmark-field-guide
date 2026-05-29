@@ -70,6 +70,7 @@ export default withMermaid(
                 collapsed: false,
                 items: [
                   { text: 'LongBench v2', link: '/zh/cards/long-context/longbench-v2' },
+                  { text: 'LongMemEval', link: '/zh/cards/long-context/longmemeval' },
                 ],
               },
               {
@@ -236,6 +237,7 @@ export default withMermaid(
                 collapsed: false,
                 items: [
                   { text: 'LongBench v2', link: '/en/cards/long-context/longbench-v2' },
+                  { text: 'LongMemEval', link: '/en/cards/long-context/longmemeval' },
                 ],
               },
               {

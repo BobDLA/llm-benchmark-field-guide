@@ -21,7 +21,7 @@ Notes:
 
 ## Current Coverage
 
-The site currently includes 23 cards across 13 capability categories: 16 single-benchmark cards plus 7 vision / multimodal cluster cards.
+The site currently includes 24 cards across 13 capability categories: 17 single-benchmark cards plus 7 vision / multimodal cluster cards.
 
 The site now also includes a vision / multimodal cluster-card expansion across these capability groups:
 
