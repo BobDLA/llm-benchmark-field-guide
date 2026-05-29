@@ -23,8 +23,20 @@ features:
     link: /en/cards/instruction-following/ifeval
   - icon: 📚
     title: Long Context
-    details: LongBench v2, LongMemEval, LoCoMo, and ConvoMem cover long-context reasoning and conversational memory
+    details: LongBench v2 stresses deep reasoning over realistic long materials
     link: /en/cards/long-context/longbench-v2
+  - icon: 🧠
+    title: LongMemEval
+    details: Long-term interactive memory for chat assistants, including retrieval, updates, temporal reasoning, and abstention
+    link: /en/cards/long-context/longmemeval
+  - icon: 💬
+    title: LoCoMo
+    details: Very long open-domain conversation QA, event summarization, and multimodal dialogue
+    link: /en/cards/long-context/locomo
+  - icon: 🗃️
+    title: ConvoMem
+    details: Large-scale conversational memory with 75,336 QA pairs across six evidence categories
+    link: /en/cards/long-context/convomem
   - icon: 🔬
     title: STEM
     details: GPQA targets graduate-level science QA that is hard to shortcut with casual search

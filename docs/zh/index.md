@@ -23,8 +23,20 @@ features:
     link: /zh/cards/instruction-following/ifeval
   - icon: 📚
     title: Long Context · 长上下文
-    details: "LongBench v2 · LongMemEval · LoCoMo · ConvoMem — 长材料推理与会话记忆"
+    details: "LongBench v2 — 长材料深理解与推理"
     link: /zh/cards/long-context/longbench-v2
+  - icon: 🧠
+    title: LongMemEval · 长期记忆
+    details: "聊天助手长期交互记忆：检索、更新、时间推理与拒答"
+    link: /zh/cards/long-context/longmemeval
+  - icon: 💬
+    title: LoCoMo · 长期会话
+    details: "超长期开放域会话：QA、事件总结与多模态对话"
+    link: /zh/cards/long-context/locomo
+  - icon: 🗃️
+    title: ConvoMem · 会话记忆
+    details: "75,336 个 QA 的大规模会话记忆与状态更新评测"
+    link: /zh/cards/long-context/convomem
   - icon: 🔬
     title: STEM · 科学
     details: "GPQA — 研究生难度科学问答"
