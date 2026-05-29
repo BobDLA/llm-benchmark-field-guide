@@ -1,11 +1,13 @@
 # Cross-Card Comparison
 
-The site currently includes 26 core cards:
+The site currently includes 28 core cards:
 
 - `MMLU-Pro`: Knowledge / Robust Multi-Subject QA
 - `IFEval`: Instruction Following / Verifiable Constraint Satisfaction
 - `LongBench v2`: Long Context / Deep Long-Context Reasoning
+- `AA-LCR`: Long Context / Multi-Document Long-Context Reasoning
 - `LongMemEval`: Long Context / Long-Term Interactive Memory
+- `PersonaMem`: Long Context / Personalized Conversational Memory
 - `LoCoMo`: Long Context / Long-Term Conversational Memory
 - `ConvoMem`: Long Context / Conversational Memory
 - `GPQA`: STEM / Graduate Science QA
@@ -38,7 +40,9 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 | MMLU-Pro | Knowledge | Multi-subject knowledge + harder MCQ reasoning | accuracy | contamination and MCQ saturation |
 | IFEval | Instruction Following | Whether explicit constraints are fully obeyed | rule-based checks | content-quality blind spots |
 | LongBench v2 | Long Context | Deep reasoning over long realistic context | accuracy | length and reasoning are entangled |
+| AA-LCR | Long Context | Extraction, calculation, and synthesis over real multi-document sets around 100k tokens | LLM equality check | small sample size, judge dependence, and document-order sensitivity |
 | LongMemEval | Long Context | Long-term chat memory, retrieval, updates, temporal reasoning, and abstention | LLM judge + retrieval recall | cleaned-version, judge, and memory-system protocol mixing |
+| PersonaMem | Long Context | User profiling, preference evolution, and personalized response selection | multiple-choice accuracy | synthetic personas, MCQ simplification, and v1-v2 mixing |
 | LoCoMo | Long Context | Very long open-domain dialogue QA, event summarization, and multimodal dialogue | F1 / recall | current 10-conversation subset vs initial 50-conversation release |
 | ConvoMem | Long Context | Large-scale conversational memory, updates, preferences, abstention, and implicit connections | accuracy / rubrics | synthetic CRM setting and context-size protocol mixing |
 | GPQA | STEM | Graduate-level science QA | accuracy | subset mixing and narrow domain coverage |
@@ -72,7 +76,9 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 ### "Can the model really use long context and fresh reasoning?"
 
 - Read [LongBench v2](/en/cards/long-context/longbench-v2) for long-context reasoning.
+- Add [AA-LCR](/en/cards/long-context/aa-lcr) for real-world multi-document reasoning around 100k tokens.
 - Read [LongMemEval](/en/cards/long-context/longmemeval) for long-term interactive memory.
+- Add [PersonaMem](/en/cards/long-context/personamem) for user-profile tracking, preference evolution, and personalized responses.
 - Add [LoCoMo](/en/cards/long-context/locomo) for very long open-domain dialogue diagnostics.
 - Add [ConvoMem](/en/cards/long-context/convomem) for large-scale conversational-memory comparisons.
 - Add [LiveCodeBench](/en/cards/reasoning/livecodebench) for fresh code reasoning and code-task breadth.
@@ -105,13 +111,15 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 - `AIME` is a narrower but cleaner closed-answer competition-math signal.
 - `HLE` is broader and tries to stress frontier reasoning across expert domains.
 
-### `LongBench v2` vs `LongMemEval` vs `LoCoMo` vs `ConvoMem`
+### `LongBench v2` vs `AA-LCR` vs `LongMemEval` vs `PersonaMem` vs `LoCoMo` vs `ConvoMem`
 
 - `LongBench v2` is about deep reasoning over long materials provided at once.
+- `AA-LCR` is about extraction, calculation, and synthesis over real multi-document sets.
 - `LongMemEval` is about persistent memory over accumulated chat-assistant interactions.
+- `PersonaMem` is about user profiles, preference evolution, and personalized response selection.
 - `LoCoMo` is a small, high-quality diagnostic set for very long open-domain conversations.
 - `ConvoMem` is a larger, category-controlled conversational-memory benchmark.
-- All four are long-context related, but they should not be substituted for one another.
+- All six are long-context related, but they should not be substituted for one another.
 
 ### `BrowseComp` vs `WideSearch`
 
@@ -212,4 +220,4 @@ The benchmark rows from the screenshot are now grouped into 7 vision / multimoda
 
 ## Bottom Line
 
-> The current 19 single-benchmark cards plus 7 vision cluster cards support a fuller evaluation path: knowledge, science, math, and hard reasoning; then long context, conversational memory, and fresh reasoning; then search, tool use, business agents, and coding agents; and finally translation and multilingualism. The biggest recurring mistake is to treat one card as a substitute for an entire capability cluster.
+> The current 21 single-benchmark cards plus 7 vision cluster cards support a fuller evaluation path: knowledge, science, math, and hard reasoning; then long context, multi-document reasoning, conversational memory, personalized memory, and fresh reasoning; then search, tool use, business agents, and coding agents; and finally translation and multilingualism. The biggest recurring mistake is to treat one card as a substitute for an entire capability cluster.

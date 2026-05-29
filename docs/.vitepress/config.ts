@@ -74,13 +74,15 @@ export default withMermaid(
                     collapsed: false,
                     items: [
                       { text: 'LongBench v2', link: '/zh/cards/long-context/longbench-v2' },
+                      { text: 'AA-LCR', link: '/zh/cards/long-context/aa-lcr' },
                     ],
                   },
                   {
-                    text: '会话记忆',
+                    text: '长期记忆',
                     collapsed: false,
                     items: [
                       { text: 'LongMemEval', link: '/zh/cards/long-context/longmemeval' },
+                      { text: 'PersonaMem', link: '/zh/cards/long-context/personamem' },
                       { text: 'LoCoMo', link: '/zh/cards/long-context/locomo' },
                       { text: 'ConvoMem', link: '/zh/cards/long-context/convomem' },
                     ],
@@ -229,13 +231,15 @@ export default withMermaid(
                     collapsed: false,
                     items: [
                       { text: 'LongBench v2', link: '/en/cards/long-context/longbench-v2' },
+                      { text: 'AA-LCR', link: '/en/cards/long-context/aa-lcr' },
                     ],
                   },
                   {
-                    text: 'Conversational Memory',
+                    text: 'Long-Term Memory',
                     collapsed: false,
                     items: [
                       { text: 'LongMemEval', link: '/en/cards/long-context/longmemeval' },
+                      { text: 'PersonaMem', link: '/en/cards/long-context/personamem' },
                       { text: 'LoCoMo', link: '/en/cards/long-context/locomo' },
                       { text: 'ConvoMem', link: '/en/cards/long-context/convomem' },
                     ],

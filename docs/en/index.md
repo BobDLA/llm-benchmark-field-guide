@@ -25,10 +25,18 @@ features:
     title: Long Context
     details: LongBench v2 stresses deep reasoning over realistic long materials
     link: /en/cards/long-context/longbench-v2
+  - icon: 📄
+    title: AA-LCR
+    details: Real-world multi-document sets around 100k tokens for extraction, calculation, and synthesis
+    link: /en/cards/long-context/aa-lcr
   - icon: 🧠
     title: LongMemEval
     details: Long-term interactive memory for chat assistants, including retrieval, updates, temporal reasoning, and abstention
     link: /en/cards/long-context/longmemeval
+  - icon: 👤
+    title: PersonaMem
+    details: Multi-session user profiles, preference evolution, and personalized response selection
+    link: /en/cards/long-context/personamem
   - icon: 💬
     title: LoCoMo
     details: Very long open-domain conversation QA, event summarization, and multimodal dialogue
@@ -55,16 +63,24 @@ features:
     link: /en/cards/reasoning/livecodebench
   - icon: 🌐
     title: Search Agent
-    details: BrowseComp and WideSearch cover both hard fact-chasing and broad research-style search
+    details: BrowseComp measures persistent open-web fact chasing and evidence assembly
     link: /en/cards/search-agent/browsecomp
+  - icon: 🔎
+    title: WideSearch
+    details: Breadth-first search, missing-field completion, and structured information gathering
+    link: /en/cards/search-agent/widesearch
   - icon: 🛠️
     title: General Agent
     details: BFCL V4, TAU2-Bench, and MCPMark cover tool use, business workflows, and MCP-native tasks
     link: /en/cards/general-agent/bfcl-v4
   - icon: 💻
-    title: Coding Agent
-    details: SWE-bench and Terminal-Bench 2 measure repo repair and real terminal execution
+    title: SWE-bench
+    details: Real GitHub issues, real repository snapshots, and test-validated patches
     link: /en/cards/coding-agent/swebench
+  - icon: 🖥️
+    title: Coding Agent
+    details: Terminal-Bench 2 measures end-to-end task execution in a real terminal
+    link: /en/cards/coding-agent/terminal-bench-2
   - icon: 🈯
     title: Translation
     details: WMT24++ measures real many-language translation quality across 55 directions
@@ -95,15 +111,15 @@ Every card answers 4 core questions:
 > [!TIP]
 > New here? Start with [How to Read a Card](/en/guide/how-to-read), then read [How We Source These Cards](/en/guide/how-we-source).
 
-## 13 Capability Categories, 26 Cards
+## 13 Capability Categories, 28 Cards
 
-This includes `19` single-benchmark cards and `7` vision / multimodal cluster cards.
+This includes `21` single-benchmark cards and `7` vision / multimodal cluster cards.
 
 | Category | Benchmark Cards | What They Mainly Measure |
 | -------- | --------------- | ------------------------ |
 | Knowledge | [MMLU-Pro](/en/cards/knowledge/mmlu-pro) | Multi-subject knowledge plus harder MCQ reasoning |
 | Instruction Following | [IFEval](/en/cards/instruction-following/ifeval) | Whether explicit constraints are fully satisfied |
-| Long Context | [LongBench v2](/en/cards/long-context/longbench-v2), [LongMemEval](/en/cards/long-context/longmemeval), [LoCoMo](/en/cards/long-context/locomo), [ConvoMem](/en/cards/long-context/convomem) | Long-context reasoning, long-term interactive memory, and conversational memory |
+| Long Context | [LongBench v2](/en/cards/long-context/longbench-v2), [AA-LCR](/en/cards/long-context/aa-lcr), [LongMemEval](/en/cards/long-context/longmemeval), [PersonaMem](/en/cards/long-context/personamem), [LoCoMo](/en/cards/long-context/locomo), [ConvoMem](/en/cards/long-context/convomem) | Long-context reasoning, multi-document reasoning, long-term interactive memory, and personalized conversational memory |
 | STEM | [GPQA](/en/cards/stem/gpqa) | Graduate-level science QA |
 | Math | [AIME (MathArena)](/en/cards/math/aime) | Closed-answer competition math reasoning |
 | Hard Reasoning | [HLE](/en/cards/hard-reasoning/hle) | Frontier-level expert closed-ended reasoning |

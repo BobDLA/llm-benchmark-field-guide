@@ -25,10 +25,18 @@ features:
     title: Long Context · 长上下文
     details: "LongBench v2 — 长材料深理解与推理"
     link: /zh/cards/long-context/longbench-v2
+  - icon: 📄
+    title: AA-LCR · 长文档推理
+    details: "真实多文档集合：约 100k tokens 的抽取、计算与综合推理"
+    link: /zh/cards/long-context/aa-lcr
   - icon: 🧠
     title: LongMemEval · 长期记忆
     details: "聊天助手长期交互记忆：检索、更新、时间推理与拒答"
     link: /zh/cards/long-context/longmemeval
+  - icon: 👤
+    title: PersonaMem · 个性化记忆
+    details: "多 session 用户画像、偏好演化与个性化回答选择"
+    link: /zh/cards/long-context/personamem
   - icon: 💬
     title: LoCoMo · 长期会话
     details: "超长期开放域会话：QA、事件总结与多模态对话"
@@ -55,16 +63,24 @@ features:
     link: /zh/cards/reasoning/livecodebench
   - icon: 🌐
     title: Search Agent · 搜索代理
-    details: "BrowseComp · WideSearch — 难题追踪与广搜整理"
+    details: "BrowseComp — 开放互联网难题追踪与证据拼接"
     link: /zh/cards/search-agent/browsecomp
+  - icon: 🔎
+    title: WideSearch · 广搜整理
+    details: "复杂信息需求的广搜、补字段与结构化整理"
+    link: /zh/cards/search-agent/widesearch
   - icon: 🛠️
     title: General Agent · 通用代理
     details: "BFCL V4 · TAU2-Bench · MCPMark — 工具调用、对话代理与 MCP"
     link: /zh/cards/general-agent/bfcl-v4
   - icon: 💻
-    title: Coding Agent · 代码代理
-    details: "SWE-bench · Terminal-Bench 2 — 真实仓库修复与终端执行"
+    title: SWE-bench · 仓库修复
+    details: "真实 GitHub issue、真实代码仓库与测试驱动 patch"
     link: /zh/cards/coding-agent/swebench
+  - icon: 🖥️
+    title: Coding Agent · 代码代理
+    details: "Terminal-Bench 2 — 真实终端任务与端到端执行"
+    link: /zh/cards/coding-agent/terminal-bench-2
   - icon: 🈯
     title: Translation · 翻译
     details: "WMT24++ — 55 语言与方言的真实翻译质量"
@@ -93,15 +109,15 @@ features:
 > [!TIP]
 > 第一次来？先看 [怎么读一张卡片](/zh/cards/guide/how-to-read)，2 分钟搞定阅读路径。
 
-## 13 个能力类目 · 26 张卡片
+## 13 个能力类目 · 28 张卡片
 
-当前结构包括 `19` 张单 benchmark 卡和 `7` 张视觉 / 多模态专题卡。点击任一卡片直接进入解读。
+当前结构包括 `21` 张单 benchmark 卡和 `7` 张视觉 / 多模态专题卡。点击任一卡片直接进入解读。
 
 | **能力类目** | **Benchmark 卡片** | **主要测什么** |
 |------------|-------------------|---------------|
 | 🔍 Knowledge | [MMLU-Pro](/zh/cards/knowledge/mmlu-pro) | 多学科知识 + 多选推理 |
 | 📋 Instruction Following | [IFEval](/zh/cards/instruction-following/ifeval) | 显式约束有没有全部做到 |
-| 📚 Long Context | [LongBench v2](/zh/cards/long-context/longbench-v2)、[LongMemEval](/zh/cards/long-context/longmemeval)、[LoCoMo](/zh/cards/long-context/locomo)、[ConvoMem](/zh/cards/long-context/convomem) | 长材料深理解、长期交互记忆与会话记忆 |
+| 📚 Long Context | [LongBench v2](/zh/cards/long-context/longbench-v2)、[AA-LCR](/zh/cards/long-context/aa-lcr)、[LongMemEval](/zh/cards/long-context/longmemeval)、[PersonaMem](/zh/cards/long-context/personamem)、[LoCoMo](/zh/cards/long-context/locomo)、[ConvoMem](/zh/cards/long-context/convomem) | 长材料深理解、多文档推理、长期交互记忆与个性化会话记忆 |
 | 🔬 STEM | [GPQA](/zh/cards/stem/gpqa) | 研究生难度科学问答 |
 | ➗ Math | [AIME (MathArena)](/zh/cards/math/aime) | 竞赛数学 final-answer 推理 |
 | 🧩 Hard Reasoning | [HLE](/zh/cards/hard-reasoning/hle) | 前沿专家级 closed-ended 硬题 |
