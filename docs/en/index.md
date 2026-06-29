@@ -71,7 +71,7 @@ features:
     link: /en/cards/search-agent/widesearch
   - icon: 🛠️
     title: General Agent
-    details: BFCL V4, TAU2-Bench, and MCPMark cover tool use, business workflows, and MCP-native tasks
+    details: BFCL V4, TAU2-Bench, and MCPMark cover tool use, customer-service task completion, and MCP-native tasks
     link: /en/cards/general-agent/bfcl-v4
   - icon: 💻
     title: SWE-bench
@@ -125,7 +125,7 @@ This includes `21` single-benchmark cards and `7` vision / multimodal cluster ca
 | Hard Reasoning | [HLE](/en/cards/hard-reasoning/hle) | Frontier-level expert closed-ended reasoning |
 | Reasoning | [LiveCodeBench](/en/cards/reasoning/livecodebench) | Fresh code tasks and multi-scenario code reasoning |
 | Search Agent | [BrowseComp](/en/cards/search-agent/browsecomp), [WideSearch](/en/cards/search-agent/widesearch) | Hard fact pursuit and broad information gathering |
-| General Agent | [BFCL V4](/en/cards/general-agent/bfcl-v4), [TAU2-Bench](/en/cards/general-agent/tau2-bench), [MCPMark](/en/cards/general-agent/mcpmark) | Tool use, business workflows, and MCP-native tasks |
+| General Agent | [BFCL V4](/en/cards/general-agent/bfcl-v4), [TAU2-Bench](/en/cards/general-agent/tau2-bench), [MCPMark](/en/cards/general-agent/mcpmark) | Tool use, customer-service task completion, and MCP-native tasks |
 | Coding Agent | [SWE-bench](/en/cards/coding-agent/swebench), [Terminal-Bench 2](/en/cards/coding-agent/terminal-bench-2) | Real repo repair and terminal execution |
 | Translation | [WMT24++](/en/cards/translation/wmt24) | Real many-language translation quality |
 | Multilingualism | [MMMLU](/en/cards/multilingualism/mmmlu) | Knowledge retention after language switching |

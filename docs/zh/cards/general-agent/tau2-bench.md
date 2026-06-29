@@ -1,46 +1,51 @@
 ---
 title: TAU2-Bench
 category: General Agent
-subcategory: Real-World Task Completion
+subcategory: Customer-Service Task Completion
 org: Sierra
-date_released: "2025-06"
-dataset_size: "面向电信客服的多轮 dual-control 任务集"
-scoring: task_success
-verdict: conditional
+date_released: "2025-06-09"
+dataset_size: "tau2 telecom: full 2,285 / base 114；当前 tau-bench repo 还包含 airline 50、retail 114、banking_knowledge 97 + 698 docs、mock 10"
+scoring: task_success_pass_k
+verdict: recommended_with_scope
 ---
 
 # Benchmark Card: TAU2-Bench
 
 | 字段 | 值 |
 | ---- | ---- |
-| 日期 | 2026-04-08 |
-| 版本 | v1 |
-| 状态 | 首版上线；按官方 repo 的 dual-control 定位整理 |
-| 变更记录 | 新增通用 agent 类卡片；补入 telecom customer service 与 pass^k 视角 |
+| 日期 | 2026-06-29 |
+| 版本 | v2 |
+| 状态 | 已按当前官方 repo、arXiv / OpenReview 论文页、本地 `/mnt/hdd/work/temp/tau2-bench` diff 文档更新 |
+| 变更记录 | 明确区分原始 `tau^2` telecom dual-control 口径与当前 `tau^3` repo 的知识、语音、任务修复扩展 |
 
 ---
 
 ## 1. 一句话定义
 
-`TAU2-Bench` 是一个更接近真实业务流程的 agent benchmark，主要关注模型能否在多轮客服任务里一边和用户对话、一边正确操作后台系统。
+`TAU2-Bench` 用来评估对话式客服 agent 能不能把真实业务任务办结，而不只是“会不会调用工具”。它最独特的 `tau^2` 贡献是 telecom dual-control：AI agent 和模拟用户都能通过各自工具影响共享环境状态。
 
 ## 2. 快速参考
 
 | 属性 | 值 |
 | ---- | ---- |
-| 全称 | τ²-Bench |
-| 首次公开 | 2025-06（arXiv） |
-| 出品方 | Sierra |
-| 核心场景 | Telecom customer service |
-| 输入形式 | 用户请求 + 可调用业务工具 + 对话上下文 + 环境状态 |
-| 输出形式 | 多轮对话、后台动作、最终任务状态 |
-| 评分方式 | task success；官方实现支持 `pass^k` 评测 |
+| 全称 | `tau^2-Bench`: Evaluating Conversational Agents in a Dual-Control Environment |
+| 首次论文公开 | 2025-06-09（arXiv 提交） |
+| 当前论文状态 | OpenReview 页面显示为 ICML 2026 spotlight |
+| 出品方 | Sierra / University of Toronto 相关作者 |
+| 原始核心场景 | Telecom technical support，带用户侧工具的 dual-control 环境 |
+| 当前 repo 域 | `mock`、`airline`、`retail`、`telecom`、`banking_knowledge` |
+| 当前文本任务数 | `telecom`: full 2,285 / base 114；`retail`: 114；`airline`: 50；`banking_knowledge`: 97；`mock`: 10 |
+| 知识库规模 | `banking_knowledge`: 当前 repo 中 698 个 policy / procedure 文档 |
+| 模态 | 文本 half-duplex；语音 full-duplex realtime audio |
+| 输入形式 | 用户目标、策略或知识上下文、工具、对话状态、后台/用户侧环境状态 |
+| 输出形式 | 多轮对话、工具调用、后台状态变化、最终任务结果 |
+| 评分方式 | average reward 与基于多次 trial 的 `pass^k` |
 | 一级类目 | `General Agent` |
-| 二级类目 | `Real-World Task Completion` |
-| 任务形态 | `dual-control conversational agent evaluation` |
-| 风险标签 | 模拟器真实性 / 业务域偏窄 / 环境依赖 / 口径持续演进 |
+| 二级类目 | `Customer-Service Task Completion` |
+| 风险标签 | 版本口径混用 / 模拟器依赖 / 域外外推 / retrieval 与 voice 协议依赖 |
 | Repo | https://github.com/sierra-research/tau2-bench |
 | 论文 | https://arxiv.org/abs/2506.07982 |
+| OpenReview | https://openreview.net/forum?id=OC2z7iSQKa |
 | Leaderboard | https://www.taubench.com/ |
 
 ## 3. 卡片导航
@@ -49,17 +54,20 @@ verdict: conditional
 
 ```mermaid
 flowchart TD
-    A["用户提出客服需求"] --> B["Agent 与用户多轮交互"]
-    B --> C["同时操作后台系统"]
-    C --> D["检查最终状态与约束"]
-    D --> E["Task Success / pass^k"]
+    A["用户提出客服目标"] --> B["Agent 多轮对话"]
+    B --> C["Agent 调用后台工具"]
+    B --> D["在 dual-control 任务中，用户也可能调用用户侧工具"]
+    C --> E["后台 / 共享状态变化"]
+    D --> E
+    E --> F["按 reward_basis 与任务成功判分"]
+    F --> G["Average reward / pass^k"]
 ```
 
 ### 3.2 如果你只看三件事
 
-- 它测的是“**对话 + 后台动作**”双控制，范围比单纯 function calling 更完整。
-- 它贴近真实客服工作流，所以比 BFCL V4 更接近业务任务闭环。
-- 但它目前仍是垂直场景 benchmark，不能拿来代替开放世界通用 agent 结论。
+- 原始 `tau^2` 的重点不是“更多 function calling”，而是 **dual control**：agent 必须引导一个也能行动的用户。
+- 当前 `sierra-research/tau2-bench` repo 已经比原始 telecom 论文更大：包含经典 `tau-bench` 域、`banking_knowledge` 检索域、语音 full-duplex、以及大量任务质量修复。
+- 报分必须写清 domain、split、modality、retrieval config、user simulator 和 trial 数，否则很容易把不同口径的结果混在一起。
 
 ---
 
@@ -67,97 +75,75 @@ flowchart TD
 
 ### 4.1 它到底在测什么
 
-TAU2-Bench 想测的是现实业务 agent 的三个关键面：
+TAU2-Bench 最适合作为端到端客服 agent 评测来看。它关注模型能不能：
 
-1. 能不能理解用户真实意图，不能只停留在工具名匹配层。
-2. 能不能在对话中正确澄清、确认和推进任务。
-3. 能不能把后台系统状态真正改对。
+1. 理解用户目标和约束；
+2. 在多轮对话中维护状态；
+3. 正确选择并串联工具；
+4. 给用户足够清楚的指令，让用户完成必要操作；
+5. 最终把后台或共享环境状态改到正确结果。
 
-这和纯工具调用 benchmark 的区别在于：
-
-- 错误不只来自参数
-- 还可能来自多轮沟通、状态跟踪和业务策略
+Telecom dual-control 额外增加了一个现实难点：agent 不能把所有事情都自己改掉，有时必须指导用户检查或修改用户侧设备状态。
 
 ### 4.2 输入长什么样
 
-一个任务通常包含这些元素：
+一个任务通常会包含：
 
-- 用户请求
-- 多轮对话历史
-- 一组业务工具或 API
-- 后台账户/订单/套餐等状态
+- 用户场景和来电原因；
+- domain policy、workflow 或知识文档；
+- agent 侧业务工具；
+- telecom dual-control 中的 user-side tools；
+- 初始数据库或设备状态；
+- 定义目标结果的 evaluation criteria。
 
-官方 repo 把它称为 `dual-control`，意思是 agent 需要同时处理两条线：
-
-- 面向用户的自然语言交互
-- 面向系统的操作动作
-
-**公开示例**（来源：[TAU2-Bench 官方任务文件](https://raw.githubusercontent.com/sierra-research/tau2-bench/main/data/tau2/domains/telecom/tasks.json)，telecom task `"[mobile_data_issue]data_mode_off|data_usage_exceeded[PERSONA:None]"`）：
-
-> **用户来电原因**：手机移动数据无法正常使用，希望把网速恢复到 `excellent`，不接受 poor / fair / good。
->
-> **已知信息**：用户是 `John Smith`，号码 `555-123-2002`，当前位置在美国家中；不想升级套餐，但接受补充 `2.0 GB` 流量。
->
-> **初始状态**：移动数据开关关闭，线路已使用 `15.1 GB` 数据。
->
-> **评测要求**：agent 既要引导用户完成设备侧操作，也要完成后台 `refuel_data(..., 2.0)` 等动作，最终速度测试必须回到 `excellent`。
-
-这类任务要求模型把对话澄清、用户侧操作和系统侧变更一起办完。
+当前 repo 区分 domain 和 mode。文本模式是 turn-based half-duplex；语音模式是 full-duplex，并接入 realtime audio API。
 
 ### 4.3 模型要输出什么
 
-模型要输出的是完整的任务行为：
+模型输出的是可执行的客服行为：
 
-- 对用户的回复
-- 必要的澄清问题
-- 对后台系统的操作
-- 最终让任务达成的结果
+- 对用户的自然语言回复；
+- 必要的澄清问题；
+- 正确的工具调用和参数；
+- 会改变状态的后台动作；
+- 符合策略的最终解决、拒绝或转接。
 
-所以 TAU2-Bench 主要关注：
-
-> 真实业务任务能不能被一名 AI agent 完整办结。
+在 `banking_knowledge` 域里，agent 还必须先找到相关文档再行动。语音模式下，还要处理更接近真实通话的 turn-taking、插话和音频条件。
 
 ### 4.4 数据是怎么做出来的
 
-按官方说明，TAU2-Bench 的重点在于：
+这里有三层口径，不能混用：
 
-1. 环境围绕真实 telecom customer service 任务组织；
-2. benchmark 显式建模对话与后台动作的双通道控制；
-3. 官方实现支持多次运行与 `pass^k`，以反映 agent 的随机性。
+| 层级 | 含义 |
+| ---- | ---- |
+| 原始 `tau-bench` | Airline / retail 等客服任务：工具使用、策略遵循、模拟用户、`pass^k` |
+| `tau^2-Bench` | 新增 telecom dual-control：agent 和用户都有工具，共同影响共享环境 |
+| 当前 `tau^3` repo 方向 | 新增 knowledge retrieval、voice full-duplex，以及大量 task-quality fixes |
 
-这让它和更静态的 tool-use benchmark 形成明显互补：
-
-- BFCL V4 更偏“会不会调用对工具”
-- TAU2-Bench 更偏“任务闭环是否办成”
+本地 `/mnt/hdd/work/temp/tau2-bench` checkout 中，当前任务文件确认包含：telecom 2,285 个任务、retail 114 个任务、airline 50 个任务、banking_knowledge 97 个任务、mock 10 个任务；`banking_knowledge/documents` 下有 698 个 JSON 文档。
 
 ### 4.5 数据规模与分布
 
-它当前更值得记住的是分布形态：
+| 组件 | 当前 repo 规模 / 范围 | 主要用途 |
+| ---- | ---- | ---- |
+| `telecom` | full 2,285；`base` split 114 | Dual-control 技术支持 |
+| `retail` | 114 tasks | 经典客服 tool use |
+| `airline` | 50 tasks | 经典客服 tool use |
+| `banking_knowledge` | 97 tasks + 698 docs | 检索 + 交易型工具执行 |
+| `mock` | 10 tasks | 轻量测试 |
+| Voice mode | 通过 audio-native providers 支持相关域 | Full-duplex voice-agent 评测 |
 
-| 维度 | 信息 |
-| ---- | ---- |
-| 场景 | 电信客服任务 |
-| 交互形态 | 多轮对话 + 后台操作 |
-| 评测方式 | 单次成功率 + `pass^k` |
-| 设计重点 | 状态跟踪、业务约束、任务闭环 |
-
-这意味着它非常适合看：
-
-- 业务 agent 的完成度
-- 多轮真实任务中的失误类型
+官方 leaderboard / submission 文档强调：标准评测应使用默认 `base` split，并尽量做多次 trial。
 
 ### 4.6 怎么判分
 
-核心看的是：
+当前代码主要计算：
 
-1. 任务最终有没有完成
-2. 后台状态是否正确
-3. 是否违反业务约束
+1. 每个任务根据 `reward_basis` 得到 task reward；
+2. 跨 simulation 的 average reward；
+3. 基于同一任务多次 trial 的 `pass^k`。
 
-官方实现还支持 `pass^k`，这点很重要，因为 agent 行为通常带随机性：
-
-- 单次成功率反映稳定性
-- `pass^k` 反映多次尝试下的可达成功率
+本地 `docs/evaluation.md` 里一个很重要的澄清是：对 airline、retail、telecom 来说，`evaluation_criteria.actions` 通常是一条参考轨迹，用来推导或诊断目标状态，不一定是 agent 必须逐步复现的脚本。真正门控 reward 的是 `reward_basis`；只有当 `ACTION` 出现在 `reward_basis` 里，完全匹配参考动作才变成硬要求。
 
 ---
 
@@ -165,55 +151,50 @@ TAU2-Bench 想测的是现实业务 agent 的三个关键面：
 
 ### 5.1 它不测什么
 
-- 开放互联网检索
-- GUI 自动化
-- 代码仓库修复
-- 跨多个企业系统的长期复杂 workflow
-
-所以 TAU2-Bench 高分主要说明：
-
-> 这个模型具备较强的客服业务 agent 完成能力。
-
-不要直接把它解读为：
-
-> 它已经在所有现实场景里都很强。
+- 开放互联网 research；
+- GUI 自动化；
+- 代码仓库修复；
+- 长周期跨应用企业 workflow；
+- 任意非客服场景的通用 agent 能力。
 
 ### 5.2 难度信号
 
-它的难点比表面看起来更现实：
+它的价值在于很多失败都像真实上线失败：
 
-- 用户表达会变化
-- 多轮对话容易丢状态
-- 后台动作一步错，最终状态就可能全错
-- 有些任务并不是一次工具调用就能完成
-
-这类失败和真实企业 agent 产品里最常见的翻车点高度重合。
+- agent 解决了错误的用户目标；
+- agent 知道该调什么工具，但没有把用户指导清楚；
+- 用户侧状态变化和 agent 假设不一致；
+- 后台状态差一点正确，但违反了 policy；
+- 模型找到了正确知识文档，却误读或误用；
+- 语音交互因为插话、等待或实时响应出错而失败。
 
 ### 5.3 缺陷与争议
 
-#### 5.3.1 🗣️ 业务域仍然偏窄
+- 名字容易混：`tau-bench`、`tau^2-Bench`、当前 `tau^3` repo feature 不是同一个评测切片。
+- 原始 `tau^2` 的 dual-control 结论最强适用于 telecom technical support，不应自动外推到 repo 里所有域。
+- 用户模拟器仍然是模拟器；它提高了可重复性，但不能完全代表真实用户。
+- Knowledge 和 voice 结果受 retrieval config、audio provider、speech complexity、hallucination retry policy 等额外协议影响。
+- Task fixes 会改变旧分数解释。旧 checkout 的成绩未必能和当前 repo 直接比较。
 
-当前官方重点围绕 telecom customer service，外推到更广泛行业时要谨慎。  
-来源：[TAU2-Bench 官方 Repo](https://github.com/sierra-research/tau2-bench) 项目说明。
+### 5.4 本地 diff 观察
 
-#### 5.3.2 🗣️ 模拟用户与真实用户仍有差距
+本地 `/mnt/hdd/work/temp/tau2-bench` diff 里有 `PROJECT_GUIDE.md` 和若干 HTML 测试报告，更像一次 telecom `base` split 的调试/实验材料，不是官方 benchmark 元数据。可吸收的分析点是：
 
-对话代理 benchmark 很难完全复刻真实客户的噪声、反复和异常行为。  
-来源：对话式 agent benchmark 的通用局限。
+- 某些运行里出现较高转人工倾向，尤其是 agent 在没有充分确认客户或设备状态前就转接；
+- 分析里出现工具参数错误，例如把地点、`unknown` 一类值误当作电话号码字段；
+- 用户模拟器存在误判风险：用户可能以为任务解决了，但环境状态还没达到目标。
 
-#### 5.3.3 🏛️ 结果受环境与运行策略影响
+这些观察支持上面的风险判断：TAU2-Bench 的价值恰恰在于能暴露沟通、协作和环境状态失败；但解释分数时必须同时报告 scaffold 与运行配置。
 
-不同采样预算、工具配置和运行策略会影响 `pass^k` 与成功率。  
-来源：官方 repo 对 `pass^k` 与 benchmark 运行方式的说明。
-
-### 5.4 风险表
+### 5.5 风险表
 
 | 风险维度 | 风险级别 | 为什么 | 使用建议 |
 | ---- | ---- | ---- | ---- |
-| 域外外推 | 高 | 主要聚焦电信客服 | 适合看垂直业务 agent，不适合做通用总榜 |
-| 模拟器偏差 | 中 | 用户模拟与真实分布不完全一致 | 更适合看相对差异 |
-| 环境依赖 | 中 | 成绩受运行配置影响 | 报分时写清预算和配置 |
-| 口径演进 | 中 | 新 benchmark 仍在快速发展 | 关注官方版本说明 |
+| 版本口径混用 | 高 | 当前 repo 已经超出原始 `tau^2` 论文范围 | 报告中写清 commit / release / domain / split |
+| 域外外推 | 中到高 | 客服任务不等于开放世界通用 agent | 只把它当 customer-service agent 强信号 |
+| 模拟器依赖 | 中 | 用户行为由 harness 生成和约束 | 结合人工审查或真实流量 eval |
+| 环境依赖 | 中 | 工具、split、retrieval、voice、retry 配置都会影响结果 | 固定配置并随分数一起公开 |
+| 旧分数可比性 | 中 | 当前 repo 包含 task fixes 和新增模态 | 不混报旧版与新版结果 |
 
 ---
 
@@ -221,12 +202,37 @@ TAU2-Bench 想测的是现实业务 agent 的三个关键面：
 
 ### 6.1 适用场景
 
-- 你在做客服或事务办理型 agent
-- 你关心任务能否真正闭环完成
-- 你觉得纯 function calling benchmark 离业务现实还有距离
+**适合：**
+
+- 客服、售后、交易办理型 agent；
+- 检查 tool use 是否真的带来任务闭环；
+- 研究 agent 和用户共同操作环境时的 coordination 问题；
+- 比较知识型客服任务里的 retrieval 方法；
+- 评估 voice agent 在 full-duplex 条件下的任务完成能力。
+
+**不适合单独用于：**
+
+- 通用 agent 总排名；
+- 开放互联网 research 能力判断；
+- coding agent 能力判断；
+- GUI / desktop automation 能力判断。
 
 ### 6.2 是否值得看
 
-> `TAU2-Bench` 值得看，因为它把“对话理解”和“系统操作”绑在了一起，终于开始接近真实业务 agent 的失败模式。前提是你接受它目前还是垂直场景 benchmark，更适合作为强补充，不适合单独充当唯一总考卷。
+**值得看，但必须带口径。** TAU2-Bench 的强项是它检查任务闭环、后台状态，以及 telecom 场景里的用户-agent 协作。引用它时要明确 domain、split、版本、模态、retrieval config 和 trial 数。
 
-结论标签：`⚠️ 条件看`
+结论标签：`推荐，但必须限定使用范围`
+
+---
+
+## 7. 事实校验记录
+
+| 断言 | 校验状态 | 来源 |
+| ---- | ---- | ---- |
+| `tau^2` 论文于 2025-06-09 提交 arXiv，标题为 "Evaluating Conversational Agents in a Dual-Control Environment" | confirmed | arXiv `2506.07982`；OpenReview ICML 2026 页面 |
+| `tau^2` 核心贡献是 telecom dual-control，agent 和用户都有工具 | confirmed | arXiv 摘要；OpenReview 摘要 |
+| 当前 repo 域包括 `mock`、`airline`、`retail`、`telecom`、`banking_knowledge` | confirmed | 官方 GitHub README |
+| 当前 repo 增加了 `banking_knowledge`、voice full-duplex 和 task-quality fixes | confirmed | 官方 GitHub README 与 release notes |
+| 当前本地 checkout 的任务数为 `telecom=2285`、`retail=114`、`airline=50`、`banking_knowledge=97`、`mock=10` | confirmed from local files | `/mnt/hdd/work/temp/tau2-bench/data/tau2/domains/*/tasks.json` |
+| `banking_knowledge` 有 698 个 policy / procedure 文档 | confirmed | 本地文件计数；官方 GitHub changelog |
+| 本地 telecom 分析提到高转接、工具参数错误和用户模拟器误判风险 | partially_supported；这是本地运行分析，不是官方 benchmark 元数据 | `/mnt/hdd/work/temp/tau2-bench/PROJECT_GUIDE.md`；本地 HTML reports |

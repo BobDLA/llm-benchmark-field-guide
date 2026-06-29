@@ -17,7 +17,7 @@ The site currently includes 28 core cards:
 - `BrowseComp`: Search Agent / Persistent Browsing
 - `WideSearch`: Search Agent / Broad Information-Seeking
 - `BFCL V4`: General Agent / Tool Use
-- `TAU2-Bench`: General Agent / Real-World Task Completion
+- `TAU2-Bench`: General Agent / Customer-Service Task Completion
 - `MCPMark`: General Agent / MCP Tool Use
 - `SWE-bench`: Coding Agent / Autonomous Bug Fix
 - `Terminal-Bench 2`: Coding Agent / Terminal Operation
@@ -52,7 +52,7 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 | BrowseComp | Search Agent | Persistent open-web fact pursuit | LLM judge | web drift and judge subjectivity |
 | WideSearch | Search Agent | Broad search-space expansion and information organization | mixed evaluation | judge reliance and small sample size |
 | BFCL V4 | General Agent | Agentic tool use and function calling | weighted overall score | overall score hides category-level failures |
-| TAU2-Bench | General Agent | Multi-turn business task completion | task success / pass^k | simulator and domain narrowness |
+| TAU2-Bench | General Agent | Customer-service task completion across tool use, dual-control telecom, knowledge retrieval, and voice modes | average reward / pass^k | version, split, modality, and simulator mixing |
 | MCPMark | General Agent | Native MCP server use | pass@k / success rate | fast ecosystem drift |
 | SWE-bench | Coding Agent | Real-repo bug fixing | test execution | contamination and scaffold variance |
 | Terminal-Bench 2 | Coding Agent | End-to-end terminal execution | test execution | beta churn and harness dependence |
@@ -91,7 +91,7 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 ### "Can the model use tools, handle workflows, or work inside MCP?"
 
 - Read [BFCL V4](/en/cards/general-agent/bfcl-v4) for tool-use breadth and function-calling fragility.
-- Read [TAU2-Bench](/en/cards/general-agent/tau2-bench) for dialogue-plus-backend business workflows.
+- Read [TAU2-Bench](/en/cards/general-agent/tau2-bench) for customer-service task completion, especially dialogue-plus-backend workflows and telecom dual-control.
 - Read [MCPMark](/en/cards/general-agent/mcpmark) for MCP-native tool use.
 
 ### "Can the model actually complete engineering work?"
@@ -129,7 +129,7 @@ This page is not a substitute for the single-card writeups. Its job is to help y
 ### `BFCL V4` vs `TAU2-Bench` vs `MCPMark`
 
 - `BFCL V4` is the broadest tool-use benchmark here.
-- `TAU2-Bench` is the most business-workflow-like.
+- `TAU2-Bench` is the most customer-service-workflow-like, and its original `tau^2` contribution is dual-control telecom.
 - `MCPMark` is the most protocol-specific and MCP-native.
 
 ### `MMMLU` vs `WMT24++`
