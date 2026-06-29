@@ -17,7 +17,7 @@
 - `BrowseComp`：Search Agent / Persistent Browsing
 - `WideSearch`：Search Agent / Broad Info Seeking
 - `BFCL V4`：General Agent / Tool Use
-- `TAU2-Bench`：General Agent / Dual-Control Conversation
+- `TAU2-Bench`：General Agent / Customer-Service Task Completion
 - `MCPMark`：General Agent / MCP Tool Use
 - `SWE-bench`：Coding Agent / Autonomous Bug Fix
 - `Terminal-Bench 2`：Coding Agent / Terminal Operation
@@ -52,7 +52,7 @@
 | BrowseComp | Search Agent | 开放互联网中的持续搜索与证据拼接 | LLM judge | web drift 与 judge 主观性 |
 | WideSearch | Search Agent | 广搜、补字段、结构化整理 | task completion | 完整性边界与 web drift |
 | BFCL V4 | General Agent | 函数调用、多轮工具与 agentic tool use | 加权总分 | overall 掩盖分项短板 |
-| TAU2-Bench | General Agent | dual-control 对话式任务完成 | pass^k | user simulator 依赖 |
+| TAU2-Bench | General Agent | 客服任务闭环：工具调用、telecom dual-control、知识检索与语音模式 | average reward / pass^k | 版本、split、模态与模拟器口径混用 |
 | MCPMark | General Agent | MCP server 上的真实多轮工具工作流 | pass@k | 环境与 server 配置差异 |
 | SWE-bench | Coding Agent | 真实仓库 bug 修复 | 测试执行 | scaffold 与训练污染 |
 | Terminal-Bench 2 | Coding Agent | 真实终端中的端到端执行 | 测试脚本 | beta 迭代与 harness 依赖 |
@@ -91,7 +91,7 @@
 ### 我想知道模型会不会调工具、跑对话式 agent 或 MCP
 
 - 通用 tool use / function calling / multi-turn 先看 `BFCL V4`
-- 对话式 customer-service agent 先看 `TAU2-Bench`
+- 客服任务闭环、telecom dual-control 或知识型客服 agent 先看 `TAU2-Bench`
 - MCP 工作流能力先看 `MCPMark`
 
 ### 我想知道模型会不会把工程任务真的跑完
@@ -131,7 +131,7 @@
 ### `BFCL V4` vs `TAU2-Bench` vs `MCPMark`
 
 - `BFCL V4` 更偏通用 tool use 与 function calling
-- `TAU2-Bench` 更偏对话式任务完成与 dual-control 状态变化
+- `TAU2-Bench` 更偏客服任务闭环；原始 `tau^2` 贡献是 telecom dual-control 状态变化
 - `MCPMark` 更偏 MCP server 上的真实工作流
 
 ### `MMMLU` vs `WMT24++`

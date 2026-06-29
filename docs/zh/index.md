@@ -71,7 +71,7 @@ features:
     link: /zh/cards/search-agent/widesearch
   - icon: 🛠️
     title: General Agent · 通用代理
-    details: "BFCL V4 · TAU2-Bench · MCPMark — 工具调用、对话代理与 MCP"
+    details: "BFCL V4 · TAU2-Bench · MCPMark — 工具调用、客服任务闭环与 MCP"
     link: /zh/cards/general-agent/bfcl-v4
   - icon: 💻
     title: SWE-bench · 仓库修复
@@ -123,7 +123,7 @@ features:
 | 🧩 Hard Reasoning | [HLE](/zh/cards/hard-reasoning/hle) | 前沿专家级 closed-ended 硬题 |
 | 🧠 Reasoning | [LiveCodeBench](/zh/cards/reasoning/livecodebench) | 新鲜代码题与多场景代码能力 |
 | 🌐 Search Agent | [BrowseComp](/zh/cards/search-agent/browsecomp)、[WideSearch](/zh/cards/search-agent/widesearch) | 难题追踪 / 广搜整理 |
-| 🛠️ General Agent | [BFCL V4](/zh/cards/general-agent/bfcl-v4)、[TAU2-Bench](/zh/cards/general-agent/tau2-bench)、[MCPMark](/zh/cards/general-agent/mcpmark) | 工具调用 / 对话代理 / MCP 工具工作流 |
+| 🛠️ General Agent | [BFCL V4](/zh/cards/general-agent/bfcl-v4)、[TAU2-Bench](/zh/cards/general-agent/tau2-bench)、[MCPMark](/zh/cards/general-agent/mcpmark) | 工具调用 / 客服任务闭环 / MCP 工具工作流 |
 | 💻 Coding Agent | [SWE-bench](/zh/cards/coding-agent/swebench)、[Terminal-Bench 2](/zh/cards/coding-agent/terminal-bench-2) | 真实仓库修复 / 终端执行 |
 | 🈯 Translation | [WMT24++](/zh/cards/translation/wmt24) | 多语言真实翻译质量 |
 | 🌍 Multilingualism | [MMMLU](/zh/cards/multilingualism/mmmlu) | 语言切换后的知识保持 |
